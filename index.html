@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Compass English | Tenses &amp; Aspects — Hệ Thống Thẻ 12 Thì &amp; So Sánh Thì</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      font-size: 18px;
+    }
+    @media (min-width: 1024px) {
+      :root {
+        font-size: 19px;
+      }
+    }
+    body {
+      font-family: 'Be Vietnam Pro', sans-serif;
+      background-color: #eef2f6;
+      color: #0f172a;
+      overflow-x: hidden;
+    }
+    .font-display {
+      font-family: 'Plus Jakarta Sans', 'Be Vietnam Pro', sans-serif;
+    }
+    .font-mono-code {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .card-surface {
+      background-color: #ffffff;
+      border-radius: 28px;
+      border: 2px solid #cbd5e1;
+      box-shadow: 0 14px 30px -14px rgba(15, 23, 42, 0.12);
+    }
+    .tile-btn {
+      transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease, background-color 0.16s ease;
+    }
+    .tile-btn:hover {
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-indigo-700 selection:text-white">
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b-2 border-slate-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-3">
+      <button type="button" onclick="openOverview()" class="flex items-center gap-3 text-left focus:outline-none">
+        <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-indigo-700 to-sky-600 flex items-center justify-center text-white font-display font-extrabold text-lg shadow">
+          CE
+        </div>
+        <div>
+          <span class="font-display font-extrabold text-lg sm:text-xl text-slate-950 block leading-none">
+            Compass <span class="text-indigo-700">English</span>
+          </span>
+          <span class="text-xs font-extrabold text-slate-600 mt-1 block">Tenses &amp; Aspects • 4 Nhóm (15 Thẻ Riêng Biệt)</span>
+        </div>
+      </button>
+
+      <div class="flex items-center gap-2">
+        <div class="inline-flex rounded-xl bg-slate-200 p-1">
+          <button type="button" id="btn-accent-us" onclick="setAccent('en-US')" class="px-2.5 py-1 rounded-lg text-xs font-extrabold bg-white text-indigo-800 shadow-sm transition">US</button>
+          <button type="button" id="btn-accent-uk" onclick="setAccent('en-GB')" class="px-2.5 py-1 rounded-lg text-xs font-extrabold text-slate-700 hover:text-slate-950 transition">UK</button>
+        </div>
+        <button type="button" onclick="openOverview()" class="px-3.5 py-2 rounded-xl text-xs sm:text-sm font-extrabold bg-slate-900 hover:bg-slate-800 text-white transition">
+          Tổng quan chủ đề
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
+
+    <!-- ==================== THANH ĐIỀU HƯỚNG 4 NHÓM & CÁC THẺ THÀNH PHẦN CON ==================== -->
+    <section class="card-surface p-5 sm:p-7 space-y-5">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3 border-b-2 border-slate-200 pb-4">
+        <div>
+          <span class="text-xs font-extrabold uppercase tracking-wider text-indigo-700">TENSES &amp; ASPECTS (THÌ &amp; THỂ TRONG TIẾNG ANH)</span>
+          <h1 class="font-display text-2xl sm:text-3xl font-extrabold text-slate-950">
+            Hệ Thống Thẻ 12 Thì &amp; So Sánh Thì
+          </h1>
+        </div>
+        <div id="breadcrumb-badge" class="px-3.5 py-1.5 rounded-full bg-indigo-100 text-indigo-950 text-xs sm:text-sm font-extrabold border border-indigo-300 self-start lg:self-auto">
+          Giới thiệu chung TENSES &amp; ASPECTS
+        </div>
+      </div>
+
+      <!-- 4 Nhóm chính -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-2.5" id="group-nav-grid"></div>
+
+      <!-- Các thẻ thành phần con thuộc nhóm đang chọn -->
+      <div class="space-y-2.5 pt-1">
+        <div class="flex items-center justify-between gap-2">
+          <span id="sub-group-label" class="text-xs font-extrabold uppercase tracking-wider text-slate-600">
+            Thẻ thành phần con (bấm để mở thẻ riêng):
+          </span>
+          <span id="sub-group-count" class="text-xs font-bold text-indigo-700"></span>
+        </div>
+        <div class="flex flex-wrap gap-2" id="subtopic-pills-row"></div>
+      </div>
+    </section>
+
+    <!-- ==================== THẺ GIỚI THIỆU CHUNG CHỦ ĐỀ LỚN ==================== -->
+    <section id="overview-section" class="card-surface p-6 sm:p-8 space-y-8">
+      <div class="space-y-3 border-b-2 border-slate-200 pb-6">
+        <span class="px-3.5 py-1 rounded-full bg-indigo-100 text-indigo-950 text-xs font-extrabold uppercase tracking-wider">
+          Giới Thiệu Chung Chủ Đề Lớn
+        </span>
+        <h2 class="font-display text-2xl sm:text-3xl font-extrabold text-slate-950">
+          TENSES &amp; ASPECTS — HỆ THỐNG THỜI GIAN &amp; TRẠNG THÁI HÀNH ĐỘNG
+        </h2>
+        <p class="text-base sm:text-lg text-slate-800 leading-relaxed">
+          Trong ngữ pháp tiếng Anh, hệ thống động từ kết hợp hai trục cốt lõi: <strong>Tense (Thì — mốc thời gian: Hiện tại, Quá khứ, Tương lai)</strong> và <strong>Aspect (Thể — trạng thái diễn biến của hành động: Đơn/Simple, Tiếp diễn/Continuous, Hoàn thành/Perfect, Hoàn thành tiếp diễn/Perfect Continuous)</strong>. Sự kết hợp 3 mốc thời gian × 4 thể tạo nên <strong>12 thì chuẩn</strong> cùng các cặp so sánh kinh điển.
+        </p>
+      </div>
+
+      <!-- 3 trụ cột: Tầm quan trọng - Học gì - Ứng dụng trong bài thi -->
+      <div class="grid lg:grid-cols-3 gap-5">
+        <div class="rounded-3xl border-2 border-indigo-200 bg-indigo-50/70 p-6 space-y-2.5">
+          <span class="px-3 py-1 rounded-xl bg-indigo-700 text-white text-xs font-extrabold">1. TẦM QUAN TRỌNG</span>
+          <h3 class="font-display text-xl font-extrabold text-slate-950">Vì sao phải làm chủ Tenses &amp; Aspects?</h3>
+          <p class="text-sm sm:text-base text-slate-800 leading-relaxed">
+            Tiếng Việt không biến đổi hình thái động từ theo thời gian, còn tiếng Anh dùng thì và thể để phân biệt hành động lặp lại, đang diễn ra, đã xong trước một mốc hay kéo dài liên tục. Nắm vững giúp diễn đạt chính xác tuyệt đối và tránh hiểu nhầm thời điểm sự việc.
+          </p>
+        </div>
+
+        <div class="rounded-3xl border-2 border-teal-200 bg-teal-50/70 p-6 space-y-2.5">
+          <span class="px-3 py-1 rounded-xl bg-teal-700 text-white text-xs font-extrabold">2. BẠN SẼ HỌC GÌ?</span>
+          <h3 class="font-display text-xl font-extrabold text-slate-950">Lộ trình 4 nhóm — 15 thẻ chuyên sâu</h3>
+          <p class="text-sm sm:text-base text-slate-800 leading-relaxed">
+            • <strong>1. Present (4 thì hiện tại)</strong><br />
+            • <strong>2. Past (4 thì quá khứ)</strong><br />
+            • <strong>3. Future (4 thì tương lai)</strong><br />
+            • <strong>4. Tense Comparison (3 cặp thì hay nhầm nhất)</strong><br />
+            Mỗi thẻ gồm đủ 6 phần I → VI kèm ví dụ phân tầng cơ bản đến nâng cao và 10 bài tập tương tác.
+          </p>
+        </div>
+
+        <div class="rounded-3xl border-2 border-amber-300 bg-amber-50/80 p-6 space-y-2.5">
+          <span class="px-3 py-1 rounded-xl bg-amber-600 text-white text-xs font-extrabold">3. ỨNG DỤNG TRONG CÁC BÀI THI</span>
+          <h3 class="font-display text-xl font-extrabold text-slate-950">TOEIC • IELTS • Aptis • THPTQG</h3>
+          <p class="text-sm sm:text-base text-slate-800 leading-relaxed">
+            • <strong>TOEIC Part 5 &amp; 6:</strong> Chiếm tỷ trọng lớn ở câu hỏi chia động từ theo dấu hiệu thời gian, mệnh đề điều kiện và hòa hợp thì.<br />
+            • <strong>IELTS Speaking &amp; Writing:</strong> Tiêu chí <em>Grammatical Range &amp; Accuracy</em> yêu cầu chuyển đổi linh hoạt giữa quá khứ, hiện tại hoàn thành và dự đoán tương lai.<br />
+            • <strong>THPTQG &amp; Aptis:</strong> Trọng tâm bẫy phối hợp thì (<em>when, while, by the time, since</em>).
+          </p>
+        </div>
+      </div>
+
+      <!-- Sơ đồ trục thời gian SVG -->
+      <div class="rounded-3xl border-2 border-slate-200 bg-slate-50 p-5 sm:p-6 space-y-3">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-extrabold uppercase tracking-wider text-indigo-700">Sơ Đồ Trục Thời Gian (Timeline Overview)</span>
+          <span class="text-xs font-bold text-slate-600">Bấm vào bất kỳ thẻ nào bên dưới để học chi tiết</span>
+        </div>
+        <svg viewBox="0 0 820 120" class="w-full h-auto">
+          <line x1="40" y1="60" x2="780" y2="60" stroke="#475569" stroke-width="3" stroke-linecap="round" />
+          <polygon points="780,60 766,52 766,68" fill="#475569" />
+          <!-- Past -->
+          <circle cx="180" cy="60" r="10" fill="#0d9488" />
+          <rect x="95" y="12" width="170" height="32" rx="10" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.5" />
+          <text x="180" y="33" text-anchor="middle" fill="#134e4a" font-size="13" font-weight="800">2. PAST (Quá khứ)</text>
+          <text x="180" y="92" text-anchor="middle" fill="#0f766e" font-size="11.5" font-weight="700">Simple • Cont • Perf • Perf Cont</text>
+
+          <!-- Present -->
+          <circle cx="410" cy="60" r="12" fill="#4338ca" />
+          <rect x="315" y="12" width="190" height="32" rx="10" fill="#e0e7ff" stroke="#4338ca" stroke-width="1.5" />
+          <text x="410" y="33" text-anchor="middle" fill="#1e1b4b" font-size="13" font-weight="800">1. PRESENT (Hiện tại)</text>
+          <text x="410" y="92" text-anchor="middle" fill="#3730a3" font-size="11.5" font-weight="700">Simple • Cont • Perf • Perf Cont</text>
+
+          <!-- Future -->
+          <circle cx="640" cy="60" r="10" fill="#d97706" />
+          <rect x="550" y="12" width="180" height="32" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="1.5" />
+          <text x="640" y="33" text-anchor="middle" fill="#78350f" font-size="13" font-weight="800">3. FUTURE (Tương lai)</text>
+          <text x="640" y="92" text-anchor="middle" fill="#b45309" font-size="11.5" font-weight="700">Simple • Cont • Perf • Perf Cont</text>
+        </svg>
+      </div>
+
+      <!-- Lưới 4 nhóm mở nhanh -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4" id="overview-groups-grid"></div>
+    </section>
+
+    <!-- ==================== THẺ CHI TIẾT RIÊNG BIỆT CỦA TỪNG THÀNH PHẦN CON ==================== -->
+    <section id="detail-card-section" class="hidden card-surface p-6 sm:p-8 space-y-8">
+      <!-- Render động theo thẻ thành phần con đang mở -->
+    </section>
+
+  </main>
+
+  <script>
+    let currentAccent = 'en-US';
+    let activeGroupIdx = 0;
+    let activeSubIdx = 0;
+    let overviewMode = true;
+    let showAllSubQ = false;
+    const savedQuizAnswers = {};
+
+    function setAccent(acc) {
+      currentAccent = acc;
+      document.getElementById('btn-accent-us').className = acc === 'en-US'
+        ? 'px-2.5 py-1 rounded-lg text-xs font-extrabold bg-white text-indigo-800 shadow-sm transition'
+        : 'px-2.5 py-1 rounded-lg text-xs font-extrabold text-slate-700 hover:text-slate-950 transition';
+      document.getElementById('btn-accent-uk').className = acc === 'en-GB'
+        ? 'px-2.5 py-1 rounded-lg text-xs font-extrabold bg-white text-indigo-800 shadow-sm transition'
+        : 'px-2.5 py-1 rounded-lg text-xs font-extrabold text-slate-700 hover:text-slate-950 transition';
+    }
+
+    function speakText(text) {
+      if (!('speechSynthesis' in window)) return;
+      window.speechSynthesis.cancel();
+      const u = new SpeechSynthesisUtterance(text);
+      u.lang = currentAccent;
+      u.rate = 0.96;
+      window.speechSynthesis.speak(u);
+    }
+
+    // Dữ liệu đầy đủ 4 nhóm (15 thẻ thành phần con) với I -> VI chi tiết
+    const TENSE_GROUPS = [
+      {
+        code: '1',
+        title: '1. Present',
+        vi: 'Các thì Hiện tại',
+        desc: 'Diễn tả sự thật hiển nhiên, thói quen, hành động đang diễn ra hoặc sự việc gắn kết từ quá khứ tới hiện tại.',
+        subtopics: [
+          {
+            name: 'Present Simple',
+            vi: 'Thì Hiện tại đơn',
+            def: 'Present Simple (Thì Hiện tại đơn) là thì dùng để diễn tả những hành động lặp đi lặp lại theo thói quen, sự thật hiển nhiên, chân lý khoa học, trạng thái ổn định ở hiện tại hoặc lịch trình cố định của phương tiện/sự kiện.',
+            usage: [
+              '[Cơ bản] Thói quen, hành động lặp lại hằng ngày: "I wake up at 6:30 AM every day."',
+              '[Cơ bản] Sự thật hiển nhiên, quy luật tự nhiên: "Water boils at 100 degrees Celsius."',
+              '[Trung cấp] Tình trạng, nghề nghiệp, sở thích bền vững: "She works as an English teacher in Ho Chi Minh City."',
+              '[Trung cấp] Lịch trình, thời gian biểu cố định (tàu, xe, lớp học): "Our online class starts at 7:30 PM on Mondays."',
+              '[Nâng cao] Mệnh đề thời gian/điều kiện chỉ tương lai (sau when, as soon as, before, after, if, unless): "I will call you as soon as I arrive at the station."'
+            ],
+            structures: [
+              { label: 'Khẳng định (+)', formula: 'S + V(s/es)  |  S + am/is/are + N/Adj', ex: 'He practices English every evening.' },
+              { label: 'Phủ định (-)', formula: 'S + do/does + not + V0  |  S + am/is/are + not + N/Adj', ex: 'They do not work on Sundays.' },
+              { label: 'Nghi vấn (?)', formula: 'Do/Does + S + V0?  |  Am/Is/Are + S + N/Adj?', ex: 'Does she live near the center?' }
+            ],
+            note: 'Với chủ ngữ ngôi thứ 3 số ít (He, She, It, danh từ số ít), động từ thêm -s/-es; động từ tận cùng bằng phụ âm + y đổi thành -ies (study → studies), nhưng nguyên âm + y giữ nguyên y + s (play → plays). Không chia thì tương lai trong mệnh đề thời gian bắt đầu bằng when/until/as soon as.',
+            noteEx: 'Sai: "When she will arrive, we will start." → Đúng: "When she arrives, we will start."',
+            applications: [
+              '[Cơ bản] Giới thiệu bản thân & thói quen hằng ngày: "I drink a cup of coffee before checking my emails."',
+              '[Cơ bản] Hỏi đường, lịch trình & giờ giấc: "What time does the last bus leave for Rach Gia?"',
+              '[Trung cấp] Mô tả biểu đồ tĩnh / quy trình trong IELTS Writing Task 1: "The diagram illustrates how solar panels generate electricity."',
+              '[Trung cấp] Trả lời IELTS Speaking Part 1 về sở thích & công việc: "In my free time, I usually design interactive study materials."',
+              '[Nâng cao] Bài thi TOEIC Part 5 bẫy mệnh đề trạng ngữ chỉ thời gian: "Please notify the manager once the shipment arrives."'
+            ],
+            exercises: [
+              { type: 'mcq', q: '1. She ______ English to teenagers and adults three times a week.', opts: ['A. teach', 'B. teaches', 'C. teaching', 'D. is teach'], ans: 1, exp: 'Chủ ngữ "She" ngôi 3 số ít ở hiện tại đơn → thêm -es thành "teaches".' },
+              { type: 'mcq', q: '2. Water ______ at 0 degrees Celsius under standard pressure.', opts: ['A. freeze', 'B. is freezing', 'C. freezes', 'D. froze'], ans: 2, exp: 'Chân lý khoa học luôn đúng → dùng Present Simple "freezes".' },
+              { type: 'fill', q: '3. Điền dạng đúng của động từ (not / like): My brother __________ spicy food.', placeholder: 'doesn\'t like / does not like', acc: ["doesn't like", 'does not like'], exp: 'Phủ định ngôi 3 số ít hiện tại đơn: "doesn\'t like" hoặc "does not like".' },
+              { type: 'mcq', q: '4. The train to Hanoi ______ at 8:15 AM tomorrow morning according to the timetable.', opts: ['A. leaves', 'B. will leaving', 'C. is leave', 'D. left'], ans: 0, exp: 'Lịch trình cố định của phương tiện giao thông dùng Present Simple "leaves".' },
+              { type: 'mcq', q: '5. We will begin the meeting as soon as the director ______.', opts: ['A. will arrive', 'B. arrives', 'C. arrived', 'D. arriving'], ans: 1, exp: 'Mệnh đề thời gian sau "as soon as" dùng Present Simple thay cho thì tương lai.' },
+              { type: 'tf', q: '6. Đúng hay Sai: Câu "He don\'t studies hard on weekends." là đúng ngữ pháp.', opts: ['A. Đúng', 'B. Sai'], ans: 1, exp: 'Sai. Phải viết là "He doesn\'t study hard on weekends."' },
+              { type: 'fill', q: '7. Chia động từ (study): Minh __________ vocabulary for thirty minutes every night.', placeholder: 'studies', acc: ['studies'], exp: '"study" tận cùng phụ âm + y đổi thành "studies".' },
+              { type: 'mcq', q: '8. ______ your parents live in Ho Chi Minh City?', opts: ['A. Does', 'B. Are', 'C. Do', 'D. Is'], ans: 2, exp: '"your parents" là chủ ngữ số nhiều đi với động từ thường "live" → dùng trợ động từ "Do".' },
+              { type: 'mcq', q: '9. Which time expression is most typical of Present Simple?', opts: ['A. at the moment', 'B. usually', 'C. yesterday', 'D. by next year'], ans: 1, exp: '"usually" là trạng từ tần suất đặc trưng của thì Hiện tại đơn.' },
+              { type: 'mcq', q: '10. Choose the CORRECT sentence:', opts: ['A. She plays always the piano.', 'B. She always plays the piano.', 'C. She always play the piano.', 'D. She is always play the piano.'], ans: 1, exp: 'Trạng từ tần suất "always" đứng trước động từ thường chia ngôi 3 số ít "plays".' }
+            ]
+          },
+          {
+            name: 'Present Continuous',
+            vi: 'Thì Hiện tại tiếp diễn',
+            def: 'Present Continuous (Thì Hiện tại tiếp diễn) diễn tả hành động đang xảy ra ngay tại thời điểm nói, sự việc đang diễn tiến xung quanh hiện tại (tạm thời), xu hướng đang thay đổi hoặc kế hoạch cá nhân đã sắp xếp chắc chắn trong tương lai gần.',
+            usage: [
+              '[Cơ bản] Hành động đang diễn ra ngay lúc nói: "Listen! Someone is knocking at the door."',
+              '[Cơ bản] Hành động tạm thời quanh hiện tại (không nhất thiết ngay giây phút nói): "I am reading an interesting novel this week."',
+              '[Trung cấp] Kế hoạch cá nhân đã lên lịch/đặt trước cho tương lai gần: "We are flying to Da Nang tomorrow morning."',
+              '[Trung cấp] Xu hướng đang biến đổi/phát triển: "Online education is becoming increasingly popular."',
+              '[Nâng cao] Phàn nàn về thói quen lặp lại gây khó chịu với "always / constantly": "He is always leaving his wet towel on the bed!"'
+            ],
+            structures: [
+              { label: 'Khẳng định (+)', formula: 'S + am/is/are + V-ing', ex: 'She is preparing her lesson right now.' },
+              { label: 'Phủ định (-)', formula: 'S + am/is/are + not + V-ing', ex: 'They are not watching TV at the moment.' },
+              { label: 'Nghi vấn (?)', formula: 'Am/Is/Are + S + V-ing?', ex: 'Are you working on the project this week?' }
+            ],
+            note: 'Không dùng thì tiếp diễn với nhóm động từ trạng thái (Stative verbs) chỉ nhận thức, cảm xúc, sở hữu như: know, believe, understand, love, hate, want, need, own, belong, seem — trừ khi động từ đó chuyển sang nghĩa hành động (vd: "I think..." = tôi nghĩ rằng vs. "I am thinking about..." = tôi đang cân nhắc về...).',
+            noteEx: 'Sai: "I am knowing the answer." → Đúng: "I know the answer."',
+            applications: [
+              '[Cơ bản] Mô tả việc đang làm trong cuộc gọi/tin nhắn: "Sorry, I can\'t talk now; I am driving."',
+              '[Cơ bản] Hỏi về dự định cuối tuần đã hẹn: "What are you doing this Saturday evening?"',
+              '[Trung cấp] Mô tả xu hướng tăng/giảm trong IELTS Writing Task 1 / Speaking Part 3: "More young people are choosing flexible remote jobs."',
+              '[Trung cấp] Mô tả tranh trong bài thi TOEIC Speaking / Listening Part 1: "The woman is typing on a laptop."',
+              '[Nâng cao] Diễn đạt sự bực bội lịch sự với "always + V-ing": "My computer is constantly crashing during updates."'
+            ],
+            exercises: [
+              { type: 'mcq', q: '1. Be quiet! The students ______ their listening test right now.', opts: ['A. take', 'B. are taking', 'C. took', 'D. have taken'], ans: 1, exp: 'Dấu hiệu "Be quiet!" và "right now" → dùng Present Continuous "are taking".' },
+              { type: 'mcq', q: '2. Which sentence is INCORRECT because of a stative verb?', opts: ['A. She is studying in her room.', 'B. I am understanding your point now.', 'C. They are having lunch together.', 'D. We are meeting at 6 PM.'], ans: 1, exp: '"understand" là stative verb không chia tiếp diễn → phải dùng "I understand".' },
+              { type: 'fill', q: '3. Chia động từ (fly): We ______________ to Hanoi tomorrow; we already bought the tickets.', placeholder: 'are flying', acc: ['are flying'], exp: 'Kế hoạch tương lai gần đã đặt vé chắc chắn → "are flying".' },
+              { type: 'mcq', q: '4. Technology ______ the way teachers design interactive lessons.', opts: ['A. is changing', 'B. change', 'C. was change', 'D. has been changed by'], ans: 0, exp: 'Xu hướng đang diễn ra ở hiện tại → "is changing".' },
+              { type: 'mcq', q: '5. He ______ his keys! It\'s so annoying.', opts: ['A. always loses', 'B. is always losing', 'C. always lost', 'D. has always lose'], ans: 1, exp: 'Phàn nàn hành động lặp lại gây khó chịu → "is always losing".' },
+              { type: 'tf', q: '6. Đúng hay Sai: Quy tắc thêm -ing của "run" là "running" (gấp đôi phụ âm cuối).', opts: ['A. Đúng', 'B. Sai'], ans: 0, exp: 'Đúng. Động từ 1 âm tiết tận cùng 1 nguyên âm + 1 phụ âm gấp đôi phụ âm cuối: "running".' },
+              { type: 'fill', q: '7. Chia động từ (write): Look! The teacher ______________ the formula on the board.', placeholder: 'is writing', acc: ['is writing'], exp: 'Bỏ "e" cuối ở "write" rồi thêm -ing → "is writing".' },
+              { type: 'mcq', q: '8. Why ______ you ______ a coat today? It\'s very warm outside.', opts: ['A. do / wear', 'B. are / wearing', 'C. did / wear', 'D. have / worn'], ans: 1, exp: 'Hành động đang diễn ra tại thời điểm nói → "are / wearing".' },
+              { type: 'mcq', q: '9. This month, I ______ at a local branch while our main office is renovated.', opts: ['A. work', 'B. am working', 'C. worked', 'D. had worked'], ans: 1, exp: 'Tình huống tạm thời trong tháng này → "am working".' },
+              { type: 'mcq', q: '10. Choose the CORRECT sentence:', opts: ['A. She is having a red car.', 'B. She is having dinner with her family.', 'C. She is owning two houses.', 'D. She is wanting some water.'], ans: 1, exp: '"have dinner" là hành động ăn tối nên chia tiếp diễn được; còn own/want/have (sở hữu) thì không.' }
+            ]
+          },
+          {
+            name: 'Present Perfect',
+            vi: 'Thì Hiện tại hoàn thành',
+            def: 'Present Perfect (Thì Hiện tại hoàn thành) là cầu nối giữa quá khứ và hiện tại: diễn tả hành động xảy ra trong quá khứ nhưng không rõ thời điểm cụ thể, trải nghiệm tính đến hiện tại, hành động vừa mới xong hoặc bắt đầu trong quá khứ và còn tiếp tục/ảnh hưởng đến hiện tại.',
+            usage: [
+              '[Cơ bản] Hành động vừa mới xảy ra với "just / already / yet": "I have just finished my homework."',
+              '[Cơ bản] Trải nghiệm trong đời (từng làm hay chưa từng làm) với "ever / never / before": "Have you ever visited Da Lat?"',
+              '[Trung cấp] Hành động bắt đầu trong quá khứ và kéo dài đến hiện tại với "for + khoảng thời gian" / "since + mốc thời gian": "She has taught English since 2020."',
+              '[Trung cấp] Hành động lặp lại nhiều lần tính tới nay: "We have watched that movie three times."',
+              '[Nâng cao] Cấu trúc nhấn mạnh lần thứ mấy / so sánh nhất: "This is the first time I have tried this app." / "It is the best book I have ever read."'
+            ],
+            structures: [
+              { label: 'Khẳng định (+)', formula: 'S + have/has + V3/ed', ex: 'They have completed the report.' },
+              { label: 'Phủ định (-)', formula: 'S + have/has + not + V3/ed', ex: 'He has not replied to my email yet.' },
+              { label: 'Nghi vấn (?)', formula: 'Have/Has + S + V3/ed?', ex: 'Have you ever studied abroad?' }
+            ],
+            note: 'Phân biệt "for + khoảng thời gian" (for 3 years, for two weeks) và "since + mốc thời gian/mệnh đề quá khứ đơn" (since 2022, since I moved here). Phân biệt "have gone to" (đã đi và chưa về) vs. "have been to" (đã từng đến và đã về).',
+            noteEx: 'Đúng: "She has lived here since she graduated." (Mệnh đề sau since chia Past Simple).',
+            applications: [
+              '[Cơ bản] Kể trải nghiệm du lịch/học tập: "I have never missed a single class this semester."',
+              '[Cơ bản] Cập nhật tiến độ công việc: "We have already uploaded the new quiz."',
+              '[Trung cấp] Viết CV / phỏng vấn xin việc: "I have worked as a freelance English instructor for over five years."',
+              '[Trung cấp] Báo cáo thay đổi/thành tựu trong IELTS Writing & Speaking: "Online platforms have transformed how students learn."',
+              '[Nâng cao] Bài thi TOEIC Part 5 phối hợp thì với "since": "Sales have increased steadily since the company launched its new website."'
+            ],
+            exercises: [
+              { type: 'mcq', q: '1. She ______ as an English teacher for six years.', opts: ['A. works', 'B. worked', 'C. has worked', 'D. is working'], ans: 2, exp: 'Hành động kéo dài từ quá khứ đến hiện tại với "for six years" → Present Perfect "has worked".' },
+              { type: 'mcq', q: '2. Have you finished writing the summary ______?', opts: ['A. already', 'B. yet', 'C. just', 'D. since'], ans: 1, exp: '"yet" đứng cuối câu hỏi/phủ định trong thì Hiện tại hoàn thành.' },
+              { type: 'fill', q: '3. Điền for hoặc since: We have known each other ________ 2019.', placeholder: 'since', acc: ['since'], exp: '2019 là mốc thời gian cụ thể → dùng "since".' },
+              { type: 'mcq', q: '4. This is the second time I ______ this grammar topic.', opts: ['A. review', 'B. reviewed', 'C. have reviewed', 'D. am reviewing'], ans: 2, exp: 'Sau cấu trúc "This is the first/second time..." dùng Present Perfect.' },
+              { type: 'mcq', q: '5. Minh isn\'t at home right now. He ______ to the supermarket.', opts: ['A. has been', 'B. has gone', 'C. went to been', 'D. have gone'], ans: 1, exp: '"has gone to" = đã đi và hiện vẫn ở đó chưa về.' },
+              { type: 'tf', q: '6. Đúng hay Sai: Sau "since" có thể là một mệnh đề chia ở thì Quá khứ đơn (Past Simple).', opts: ['A. Đúng', 'B. Sai'], ans: 0, exp: 'Đúng. Ví dụ: "He has improved a lot since he joined the class."' },
+              { type: 'fill', q: '7. Chia động từ (never / see): I ______________________ such a clear diagram before.', placeholder: 'have never seen', acc: ['have never seen', "'ve never seen"], exp: 'Trải nghiệm tính đến hiện tại với "never ... before" → "have never seen".' },
+              { type: 'mcq', q: '8. ______ your sister ever ______ to Japan?', opts: ['A. Has / been', 'B. Have / been', 'C. Did / been', 'D. Was / go'], ans: 0, exp: 'Chủ ngữ số ít "your sister" + trải nghiệm từng đến đâu → "Has / been".' },
+              { type: 'mcq', q: '9. The company has launched three new products ______ last quarter.', opts: ['A. for', 'B. since', 'C. in', 'D. ago'], ans: 1, exp: '"last quarter" là mốc thời gian → dùng "since".' },
+              { type: 'mcq', q: '10. Choose the CORRECT sentence:', opts: ['A. I have seen him yesterday.', 'B. I have just seen him in the hallway.', 'C. She have finished her work.', 'D. They has lived here for ten years.'], ans: 1, exp: 'Câu B dùng đúng "have just seen" (không dùng mốc quá khứ chấm dứt như yesterday).' }
+            ]
+          },
+          {
+            name: 'Present Perfect Continuous',
+            vi: 'Thì Hiện tại hoàn thành tiếp diễn',
+            def: 'Present Perfect Continuous (Thì Hiện tại hoàn thành tiếp diễn) nhấn mạnh tính liên tục, không ngắt quãng của một hành động bắt đầu trong quá khứ, kéo dài đến hiện tại (và có thể tiếp tục), hoặc hành động vừa mới dừng lại nhưng để lại dấu hiệu rõ rệt ở hiện tại.',
+            usage: [
+              '[Cơ bản] Hành động bắt đầu trong quá khứ và vẫn đang tiếp diễn liên tục đến nay: "It has been raining for two hours."',
+              '[Cơ bản] Giải thích dấu hiệu hiện tại bằng hành động vừa diễn ra liên tục: "You look exhausted. Have you been running?"',
+              '[Trung cấp] Nhấn mạnh khoảng thời gian liên tục với "all morning / all day / for / since": "She has been preparing slides all morning."',
+              '[Trung cấp] Hỏi về độ dài quá trình với "How long...?": "How long have you been learning English?"',
+              '[Nâng cao] Phân biệt sắc thái với Present Perfect: nhấn mạnh quá trình đang diễn ra thay vì số lượng kết quả đã hoàn tất: "I have been reading this book (đang đọc dở) vs. I have read 50 pages (kết quả số lượng)."'
+            ],
+            structures: [
+              { label: 'Khẳng định (+)', formula: 'S + have/has + been + V-ing', ex: 'We have been practicing since 7:00 PM.' },
+              { label: 'Phủ định (-)', formula: 'S + have/has + not + been + V-ing', ex: 'He has not been sleeping well lately.' },
+              { label: 'Nghi vấn (?)', formula: 'Have/Has + S + been + V-ing?', ex: 'How long have you been waiting here?' }
+            ],
+            note: 'Không dùng thì Hoàn thành tiếp diễn với Stative verbs (know, own, believe, love...) và không dùng khi câu nêu rõ số lần hoặc số lượng cụ thể đã hoàn thành (khi đó phải dùng Present Perfect).',
+            noteEx: 'Sai: "I have been writing three emails." → Đúng: "I have written three emails."',
+            applications: [
+              '[Cơ bản] Than phiền hoặc giải thích trạng thái mệt mỏi: "My eyes hurt because I have been staring at the screen all day."',
+              '[Cơ bản] Hỏi thăm quá trình học tập/làm việc: "How long have you been teaching online?"',
+              '[Trung cấp] IELTS Speaking Part 1 & 2 mô tả hành trình rèn luyện kỹ năng: "I have been practicing pronunciation with audio tools for months."',
+              '[Trung cấp] Mô tả xu hướng liên tục gần đây với "lately / recently": "People have been spending more time on mobile apps lately."',
+              '[Nâng cao] Bài thi ngữ pháp phân biệt quá trình liên tục (V-ing) vs. kết quả định lượng (V3).'
+            ],
+            exercises: [
+              { type: 'mcq', q: '1. Your hands are covered in paint. What ______ you ______?', opts: ['A. do / do', 'B. have / been doing', 'C. did / do', 'D. are / do'], ans: 1, exp: 'Dấu hiệu hiện tại ("hands are covered in paint") do hành động liên tục vừa diễn ra → "have / been doing".' },
+              { type: 'mcq', q: '2. It ______ non-stop since early this morning.', opts: ['A. is raining', 'B. has been raining', 'C. rained', 'D. rains'], ans: 1, exp: 'Hành động kéo dài liên tục từ sáng sớm đến hiện tại với "since" → "has been raining".' },
+              { type: 'fill', q: '3. Chia động từ (wait): How long ________ you ______________ for the bus?', placeholder: 'have / been waiting', acc: ['have / been waiting', 'have been waiting'], exp: 'Hỏi khoảng thời gian hành động đang tiếp diễn → "have you been waiting".' },
+              { type: 'mcq', q: '4. Choose the CORRECT sentence when mentioning a specific quantity:', opts: ['A. She has been drinking four cups of coffee today.', 'B. She has drunk four cups of coffee today.', 'C. She have been drunk four cups.', 'D. She is drinking four cups since morning.'], ans: 1, exp: 'Nêu số lượng cụ thể ("four cups") phải dùng Present Perfect "has drunk".' },
+              { type: 'mcq', q: '5. Which verb CANNOT normally be used in Present Perfect Continuous?', opts: ['A. study', 'B. work', 'C. know', 'D. wait'], ans: 2, exp: '"know" là stative verb nên dùng Present Perfect ("have known"), không dùng tiếp diễn.' },
+              { type: 'tf', q: '6. Đúng hay Sai: Present Perfect Continuous thường nhấn mạnh quá trình kéo dài liên tục của hành động.', opts: ['A. Đúng', 'B. Sai'], ans: 0, exp: 'Đúng. Thì này nhấn mạnh tính liên tục và thời lượng hành động.' },
+              { type: 'fill', q: '7. Chia động từ (practice): She ______________________ speaking English all afternoon.', placeholder: 'has been practicing', acc: ['has been practicing', 'has been practising'], exp: 'Chủ ngữ "She" + "all afternoon" → "has been practicing".' },
+              { type: 'mcq', q: '8. They ______ on this web application for three months and it is almost ready.', opts: ['A. have been working', 'B. worked', 'C. are work', 'D. have been worked'], ans: 0, exp: 'Quá trình làm việc liên tục suốt 3 tháng đến nay → "have been working".' },
+              { type: 'mcq', q: '9. He looks very sleepy because he ______ well recently.', opts: ['A. hasn\'t been sleeping', 'B. doesn\'t sleep', 'C. didn\'t slept', 'D. wasn\'t sleep'], ans: 0, exp: 'Trạng thái liên tục gần đây ("recently") giải thích vẻ buồn ngủ hiện tại → "hasn\'t been sleeping".' },
+              { type: 'mcq', q: '10. Choose the CORRECT form: "I ______ for two hours, and I ______ twenty pages so far."', opts: ['A. have been reading / have read', 'B. have read / have been reading', 'C. read / am reading', 'D. am reading / read'], ans: 0, exp: 'Vế đầu nhấn mạnh thời gian liên tục ("for two hours" → have been reading); vế sau nhấn mạnh số lượng trang ("twenty pages" → have read).' }
+            ]
+          }
+        ]
+      },
+      {
+        code: '2',
+        title: '2. Past',
+        vi: 'Các thì Quá khứ',
+        desc: 'Diễn tả hành động đã chấm dứt trong quá khứ, đang diễn ra tại một thời điểm quá khứ hoặc xảy ra trước một mốc quá khứ khác.',
+        subtopics: [
+          {
+            name: 'Past Simple',
+            vi: 'Thì Quá khứ đơn',
+            def: 'Past Simple (Thì Quá khứ đơn) diễn tả hành động, sự việc đã xảy ra và kết thúc hoàn toàn tại một thời điểm xác định trong quá khứ, chuỗi hành động nối tiếp trong quá khứ hoặc thói quen cũ không còn ở hiện tại.',
+            usage: [
+              '[Cơ bản] Hành động đã kết thúc ở thời điểm quá khứ xác định (yesterday, last week, in 2024, two days ago): "I booked a bus ticket yesterday."',
+              '[Cơ bản] Chuỗi hành động xảy ra nối tiếp nhau trong câu chuyện: "She entered the room, turned on the light, and sat down."',
+              '[Trung cấp] Thói quen hoặc tình trạng kéo dài trong quá khứ đã chấm dứt: "When I was a child, I lived in Rach Gia."',
+              '[Trung cấp] Câu hỏi về thời điểm xảy ra sự việc với "When...?": "When did you start teaching online?"',
+              '[Nâng cao] Câu điều kiện loại 2 và cấu trúc giả định "It\'s time / I wish / If only": "It is time we started the lesson."'
+            ],
+            structures: [
+              { label: 'Khẳng định (+)', formula: 'S + V2/ed  |  S + was/were + N/Adj', ex: 'We finished the module last night.' },
+              { label: 'Phủ định (-)', formula: 'S + did not (didn\'t) + V0  |  S + was/were + not', ex: 'He did not attend the meeting yesterday.' },
+              { label: 'Nghi vấn (?)', formula: 'Did + S + V0?  |  Was/Were + S + N/Adj?', ex: 'Did you understand the explanation?' }
+            ],
+            note: 'Trong câu phủ định và nghi vấn với động từ thường, trợ động từ "did" đã mang dấu hiệu quá khứ nên động từ chính phải trả về nguyên mẫu không "to" (V0). Học kỹ bảng động từ bất quy tắc (go → went, buy → bought, teach → taught, write → wrote).',
+            noteEx: 'Sai: "Did she went to school yesterday?" → Đúng: "Did she go to school yesterday?"',
+            applications: [
+              '[Cơ bản] Kể lại hoạt động cuối tuần hoặc ngày hôm qua: "Yesterday, I reviewed grammar and cooked dinner."',
+              '[Cơ bản] Hỏi thông tin sự kiện đã qua: "Where did you buy that notebook?"',
+              '[Trung cấp] Mô tả số liệu quá khứ trong IELTS Writing Task 1: "In 2020, online enrollments rose sharply."',
+              '[Trung cấp] Kể chuyện trải nghiệm đáng nhớ trong IELTS Speaking Part 2: "Last year, I joined a workshop that changed my teaching style."',
+              '[Nâng cao] Bài thi TOEIC Part 5 nhận diện mốc quá khứ cụ thể (last month, in 2023, ago).'
+            ],
+            exercises: [
+              { type: 'mcq', q: '1. We ______ an interactive grammar quiz two days ago.', opts: ['A. create', 'B. created', 'C. have created', 'D. creates'], ans: 1, exp: 'Dấu hiệu quá khứ xác định "two days ago" → dùng Past Simple "created".' },
+              { type: 'mcq', q: '2. Why ______ you ______ the class yesterday afternoon?', opts: ['A. didn\'t / attend', 'B. didn\'t / attended', 'C. wasn\'t / attend', 'D. don\'t / attended'], ans: 0, exp: 'Sau trợ động từ "didn\'t" dùng động từ nguyên mẫu "attend".' },
+              { type: 'fill', q: '3. Chia động từ bất quy tắc (teach): Last year, he __________ twenty classes online.', placeholder: 'taught', acc: ['taught'], exp: 'Quá khứ đơn của "teach" là "taught".' },
+              { type: 'mcq', q: '4. She opened her laptop, logged in, and ______ the presentation.', opts: ['A. starts', 'B. started', 'C. has started', 'D. starting'], ans: 1, exp: 'Chuỗi hành động nối tiếp trong quá khứ chia đồng nhất ở Past Simple "started".' },
+              { type: 'mcq', q: '5. When ______ your family ______ to Ho Chi Minh City?', opts: ['A. has / moved', 'B. did / move', 'C. was / move', 'D. do / moved'], ans: 1, exp: 'Câu hỏi "When...?" hỏi mốc thời gian quá khứ dùng Past Simple "did / move".' },
+              { type: 'tf', q: '6. Đúng hay Sai: Quá khứ đơn của "buy" là "bought".', opts: ['A. Đúng', 'B. Sai'], ans: 0, exp: 'Đúng. buy – bought – bought.' },
+              { type: 'fill', q: '7. Chia động từ to be (be): They __________ very tired after the long trip last night.', placeholder: 'were', acc: ['were'], exp: 'Chủ ngữ số nhiều "They" + "last night" → "were".' },
+              { type: 'mcq', q: '8. When I was in high school, I ______ to school by bicycle every day.', opts: ['A. go', 'B. went', 'C. have gone', 'D. am going'], ans: 1, exp: 'Thói quen trong quá khứ đã chấm dứt → "went".' },
+              { type: 'mcq', q: '9. It\'s high time we ______ preparing for the final exam.', opts: ['A. start', 'B. started', 'C. will start', 'D. have started'], ans: 1, exp: 'Sau cấu trúc giả định "It\'s (high) time + S" dùng Past Simple "started".' },
+              { type: 'mcq', q: '10. Choose the CORRECT sentence:', opts: ['A. Did you saw the message?', 'B. I didn\'t went out last night.', 'C. She wrote a helpful guide last week.', 'D. They was happy with the result.'], ans: 2, exp: 'Câu C đúng hoàn toàn với quá khứ bất quy tắc "wrote".' }
+            ]
+          },
+          {
+            name: 'Past Continuous',
+            vi: 'Thì Quá khứ tiếp diễn',
+            def: 'Past Continuous (Thì Quá khứ tiếp diễn) diễn tả hành động đang diễn ra tại một thời điểm cụ thể trong quá khứ, hành động đang làm nền thì có hành động khác xen vào, hoặc hai hành động diễn ra song song cùng lúc trong quá khứ.',
+            usage: [
+              '[Cơ bản] Hành động đang diễn ra tại một giờ/mốc cụ thể trong quá khứ: "At 8:00 PM last night, I was teaching an online class."',
+              '[Cơ bản] Hành động đang diễn ra (Past Continuous) thì hành động khác xen vào (Past Simple): "I was reading when the phone rang."',
+              '[Trung cấp] Hai hành động diễn ra song song trong quá khứ với "while": "While I was explaining the rule, the students were taking notes."',
+              '[Trung cấp] Miêu tả bối cảnh mở đầu cho một câu chuyện trong quá khứ: "The sun was shining and birds were singing when we left."',
+              '[Nâng cao] Diễn tả sự phàn nàn về thói quen lặp lại trong quá khứ với "always / constantly": "When we were roommates, he was always borrowing my charger without asking."'
+            ],
+            structures: [
+              { label: 'Khẳng định (+)', formula: 'S + was/were + V-ing', ex: 'She was studying at 9 PM yesterday.' },
+              { label: 'Phủ định (-)', formula: 'S + was/were + not + V-ing', ex: 'We were not sleeping when you called.' },
+              { label: 'Nghi vấn (?)', formula: 'Was/Were + S + V-ing?', ex: 'What were you doing at that time?' }
+            ],
+            note: 'I / He / She / It / Danh từ số ít đi với "was"; You / We / They / Danh từ số nhiều đi với "were". Không dùng Past Continuous cho các động từ trạng thái (know, want, believe...).',
+            noteEx: 'Đúng: "While she was cooking, I was cleaning." (Song song) vs. "When I arrived, she was cooking." (Xen vào).',
+            applications: [
+              '[Cơ bản] Giải thích lý do không nghe máy lúc trước: "Sorry I missed your call; I was driving home."',
+              '[Cơ bản] Trả lời câu hỏi về thời điểm cụ thể hôm qua: "At 10 AM yesterday, we were having a team meeting."',
+              '[Trung cấp] Kể chuyện sinh động trong IELTS Speaking Part 2: "While everyone was waiting nervously, the speaker walked in with a warm smile."',
+              '[Trung cấp] Tường thuật sự việc trong tin tức/báo cáo: "The witness said the driver was speeding when the accident happened."',
+              '[Nâng cao] Bài thi ngữ pháp phối hợp "when" và "while" trong quá khứ.'
+            ],
+            exercises: [
+              { type: 'mcq', q: '1. At 8:30 PM last night, I ______ an online TOEIC class.', opts: ['A. teach', 'B. was teaching', 'C. taught', 'D. have taught'], ans: 1, exp: 'Có giờ cụ thể trong quá khứ ("At 8:30 PM last night") → Past Continuous "was teaching".' },
+              { type: 'mcq', q: '2. She ______ dinner when the lights suddenly went out.', opts: ['A. cooked', 'B. was cooking', 'C. cooks', 'D. has cooked'], ans: 1, exp: 'Hành động đang diễn ra ("was cooking") thì hành động khác xen vào ("went out").' },
+              { type: 'fill', q: '3. Chia động từ (take): While the teacher was explaining, the students ______________________ notes.', placeholder: 'were taking', acc: ['were taking'], exp: 'Hai hành động diễn ra song song trong quá khứ với "While" → "were taking".' },
+              { type: 'mcq', q: '4. What ______ you ______ when I called you at noon yesterday?', opts: ['A. did / do', 'B. were / doing', 'C. was / doing', 'D. are / doing'], ans: 1, exp: 'Hỏi hành động đang diễn ra tại thời điểm quá khứ → "were / doing".' },
+              { type: 'mcq', q: '5. It ______ heavily when we stepped out of the building.', opts: ['A. rained', 'B. was raining', 'C. rains', 'D. is raining'], ans: 1, exp: 'Miêu tả bối cảnh nền đang diễn ra trong quá khứ → "was raining".' },
+              { type: 'tf', q: '6. Đúng hay Sai: "They was playing football at 5 PM yesterday." là câu đúng.', opts: ['A. Đúng', 'B. Sai'], ans: 1, exp: 'Sai. Chủ ngữ số nhiều "They" phải đi với "were playing".' },
+              { type: 'fill', q: '7. Chia động từ (not / pay): Sorry, I ______________________ attention when you asked the question.', placeholder: "wasn't paying / was not paying", acc: ["wasn't paying", 'was not paying'], exp: 'Hành động đang không diễn ra tại thời điểm đó → "wasn\'t paying".' },
+              { type: 'mcq', q: '8. While I ______ the dishes, my brother ______ the floor.', opts: ['A. washed / swept', 'B. was washing / was sweeping', 'C. am washing / is sweeping', 'D. was washing / sweeps'], ans: 1, exp: 'Hai hành động kéo dài song song cùng lúc trong quá khứ → cả hai dùng Past Continuous.' },
+              { type: 'mcq', q: '9. We ______ along the river when we met an old friend.', opts: ['A. walked', 'B. were walking', 'C. walk', 'D. have walked'], ans: 1, exp: 'Hành động đang đi dạo làm nền cho việc tình cờ gặp bạn → "were walking".' },
+              { type: 'mcq', q: '10. Choose the CORRECT sentence:', opts: ['A. I was knowing him in 2020.', 'B. She were reading a book at 9 PM.', 'C. They were discussing the plan when I arrived.', 'D. He was sleep when the alarm rang.'], ans: 2, exp: 'Câu C đúng cấu trúc "were + V-ing" kết hợp với "when + Past Simple".' }
+            ]
+          },
+          {
+            name: 'Past Perfect',
+            vi: 'Thì Quá khứ hoàn thành',
+            def: 'Past Perfect (Thì Quá khứ hoàn thành) diễn tả một hành động đã xảy ra và hoàn tất TRƯỚC một hành động khác hoặc TRƯỚC một mốc thời gian xác định trong quá khứ (thường được gọi là "quá khứ của quá khứ").',
+            usage: [
+              '[Cơ bản] Hành động xảy ra trước một hành động quá khứ khác: "When I arrived at the station, the train had already left."',
+              '[Cơ bản] Hành động hoàn tất trước một mốc thời gian trong quá khứ với "by + mốc quá khứ": "By 2024, she had published twenty learning modules."',
+              '[Trung cấp] Phối hợp với "before, after, by the time, as soon as": "After they had finished the test, they checked the answers."',
+              '[Trung cấp] Giải thích nguyên nhân trong quá khứ: "He passed the exam easily because he had prepared thoroughly."',
+              '[Nâng cao] Câu điều kiện loại 3 (giả định trái quá khứ) và điều ước quá khứ "I wish / If only": "If I had known earlier, I would have helped you."'
+            ],
+            structures: [
+              { label: 'Khẳng định (+)', formula: 'S + had + V3/ed', ex: 'She had completed the course before moving.' },
+              { label: 'Phủ định (-)', formula: 'S + had not (hadn\'t) + V3/ed', ex: 'I had never seen that tool before yesterday.' },
+              { label: 'Nghi vấn (?)', formula: 'Had + S + V3/ed?', ex: 'Had they left when you got there?' }
+            ],
+            note: 'Trong câu có 2 hành động quá khứ: hành động xảy ra TRƯỚC chia Past Perfect (had + V3/ed), hành động xảy ra SAU chia Past Simple (V2/ed). Ghi nhớ cặp: "By the time + Past Simple, Past Perfect" và "After + Past Perfect, Past Simple".',
+            noteEx: 'Đúng: "By the time we arrived, the show had started."',
+            applications: [
+              '[Cơ bản] Kể sự việc lỡ hẹn/lỡ chuyến xe trong quá khứ: "When I reached the bus stop, the bus had already departed."',
+              '[Cơ bản] Giải thích lý do của một kết quả quá khứ: "She felt confident because she had practiced all week."',
+              '[Trung cấp] Mô tả dữ liệu tích lũy trước một năm mốc trong IELTS Writing Task 1: "By 2020, internet access had reached 80% of households."',
+              '[Trung cấp] Kể chuyện có hồi tưởng trong IELTS Speaking Part 2: "I realized I had left my wallet at home."',
+              '[Nâng cao] Bài thi TOEIC/THPTQG câu hỏi phối hợp thì với "by the time / before / after".'
+            ],
+            exercises: [
+              { type: 'mcq', q: '1. By the time we arrived at the cinema, the movie ______.', opts: ['A. already started', 'B. had already started', 'C. has already started', 'D. was starting'], ans: 1, exp: '"By the time + Past Simple" → mệnh đề chính chia Past Perfect "had already started".' },
+              { type: 'mcq', q: '2. She failed the quiz because she ______ the instructions carefully.', opts: ['A. hadn\'t read', 'B. hasn\'t read', 'C. doesn\'t read', 'D. wasn\'t read'], ans: 0, exp: 'Hành động không đọc kỹ xảy ra trước kết quả trượt bài kiểm tra → "hadn\'t read".' },
+              { type: 'fill', q: '3. Chia động từ (finish): After they ______________________ dinner, they went for a walk.', placeholder: 'had finished', acc: ['had finished'], exp: 'Hành động ăn tối xảy ra trước khi đi dạo → "had finished".' },
+              { type: 'mcq', q: '4. By 2022, he ______ in three different cities.', opts: ['A. lived', 'B. had lived', 'C. has lived', 'D. lives'], ans: 1, exp: '"By + mốc quá khứ (2022)" → dùng Past Perfect "had lived".' },
+              { type: 'mcq', q: '5. When I opened my bag, I realized I ______ my keys at the office.', opts: ['A. leave', 'B. left', 'C. had left', 'D. have left'], ans: 2, exp: 'Việc để quên chìa khóa xảy ra trước lúc mở túi nhận ra → "had left".' },
+              { type: 'tf', q: '6. Đúng hay Sai: Trong câu kể hai sự việc quá khứ nối tiếp ngay lập tức theo trình tự tự nhiên, có thể dùng hai động từ Past Simple; nhưng khi muốn nhấn mạnh sự việc xảy ra trước rõ rệt, dùng Past Perfect.', opts: ['A. Đúng', 'B. Sai'], ans: 0, exp: 'Đúng. Past Perfect làm rõ trật tự trước – sau trong quá khứ.' },
+              { type: 'fill', q: '7. Chia động từ (never / try): Before yesterday, I ______________________ Vietnamese iced coffee.', placeholder: 'had never tried', acc: ['had never tried'], exp: 'Trải nghiệm tính đến trước một mốc quá khứ ("Before yesterday") → "had never tried".' },
+              { type: 'mcq', q: '8. ______ the meeting ______ when you logged into Google Meet?', opts: ['A. Has / started', 'B. Had / started', 'C. Did / started', 'D. Was / start'], ans: 1, exp: 'Hỏi cuộc họp đã bắt đầu trước lúc bạn đăng nhập quá khứ chưa → "Had / started".' },
+              { type: 'mcq', q: '9. If she ______ harder, she would have passed the test.', opts: ['A. studied', 'B. had studied', 'C. studies', 'D. has studied'], ans: 1, exp: 'Mệnh đề If của câu điều kiện loại 3 dùng Past Perfect "had studied".' },
+              { type: 'mcq', q: '10. Choose the CORRECT sentence:', opts: ['A. Before she went to bed, she has finished her work.', 'B. After he had locked the door, he left the house.', 'C. By the time he had arrived, we left.', 'D. They had went home early.'], ans: 1, exp: 'Câu B đúng trình tự: hành động khóa cửa xảy ra trước (had locked), rời nhà xảy ra sau (left).' }
+            ]
+          },
+          {
+            name: 'Past Perfect Continuous',
+            vi: 'Thì Quá khứ hoàn thành tiếp diễn',
+            def: 'Past Perfect Continuous (Thì Quá khứ hoàn thành tiếp diễn) nhấn mạnh tính liên tục và thời lượng của một hành động đã diễn ra kéo dài trong quá khứ cho đến trước một thời điểm hoặc hành động quá khứ khác.',
+            usage: [
+              '[Cơ bản] Hành động diễn ra liên tục suốt một khoảng thời gian trước một mốc quá khứ: "They had been waiting for an hour before the train arrived."',
+              '[Cơ bản] Giải thích trạng thái/dấu hiệu ở quá khứ do hành động liên tục trước đó: "Her eyes were red because she had been crying."',
+              '[Trung cấp] Nhấn mạnh độ dài quá trình học/làm việc trước một bước ngoặt quá khứ: "He had been studying English for two years before he took the TOEIC exam."',
+              '[Trung cấp] Dùng trong câu tường thuật (Reported Speech) lùi thì từ Present Perfect Continuous / Past Continuous: "She said she had been working all day."',
+              '[Nâng cao] Câu điều kiện loại 3 dạng tiếp diễn giả định quá trình quá khứ: "If it hadn\'t been raining, we would have played outdoors."'
+            ],
+            structures: [
+              { label: 'Khẳng định (+)', formula: 'S + had + been + V-ing', ex: 'We had been driving for three hours before we stopped.' },
+              { label: 'Phủ định (-)', formula: 'S + had not (hadn\'t) + been + V-ing', ex: 'She hadn\'t been feeling well before the trip.' },
+              { label: 'Nghi vấn (?)', formula: 'Had + S + been + V-ing?', ex: 'How long had he been working there before he resigned?' }
+            ],
+            note: 'Tương tự Present Perfect Continuous, không dùng Past Perfect Continuous với động từ trạng thái (know, belong, believe...) hoặc khi nhấn mạnh số lượng kết quả cụ thể đã xong trước mốc quá khứ (khi đó dùng Past Perfect).',
+            noteEx: 'Đúng: "He had been teaching for five years when he opened his own center."',
+            applications: [
+              '[Cơ bản] Kể lại tình huống chờ đợi hoặc di chuyển dài trong quá khứ: "We were tired because we had been traveling since dawn."',
+              '[Cơ bản] Giải thích nguyên nhân mệt mỏi/hỏng hóc trong quá khứ: "The ground was wet because it had been raining all night."',
+              '[Trung cấp] Tường thuật lời nói trong bài viết & hội thoại: "The candidate mentioned that she had been managing a team of ten."',
+              '[Trung cấp] Kể hành trình chuẩn bị trước thành công trong IELTS Speaking Part 2: "I had been practicing every single evening before the competition."',
+              '[Nâng cao] Bài thi ngữ pháp nâng cao phân biệt quá trình kéo dài trước mốc quá khứ với hành động đơn lẻ.'
+            ],
+            exercises: [
+              { type: 'mcq', q: '1. The ground was wet yesterday morning because it ______ all night.', opts: ['A. rained', 'B. had been raining', 'C. has been raining', 'D. was rain'], ans: 1, exp: 'Dấu hiệu quá khứ ("ground was wet") do hành động mưa liên tục suốt đêm trước đó → "had been raining".' },
+              { type: 'mcq', q: '2. They ______ for forty minutes before the bus finally arrived.', opts: ['A. had been waiting', 'B. have been waiting', 'C. are waiting', 'D. wait'], ans: 0, exp: 'Hành động chờ kéo dài 40 phút trước mốc quá khứ "arrived" → "had been waiting".' },
+              { type: 'fill', q: '3. Chia động từ (work): She ______________________ at that company for five years before she moved to Hanoi.', placeholder: 'had been working', acc: ['had been working'], exp: 'Quá trình làm việc liên tục 5 năm trước hành động quá khứ "moved" → "had been working".' },
+              { type: 'mcq', q: '4. He was exhausted because he ______ since 6:00 AM.', opts: ['A. has been studying', 'B. had been studying', 'C. studies', 'D. is studying'], ans: 1, exp: 'Giải thích trạng thái mệt mỏi trong quá khứ ("was exhausted") → "had been studying".' },
+              { type: 'mcq', q: '5. Reported speech: "I have been preparing the lesson," she said. → She said she ______ the lesson.', opts: ['A. had been preparing', 'B. has been preparing', 'C. was prepare', 'D. had prepared been'], ans: 0, exp: 'Lùi thì từ Present Perfect Continuous sang Past Perfect Continuous → "had been preparing".' },
+              { type: 'tf', q: '6. Đúng hay Sai: Cấu trúc khẳng định của Past Perfect Continuous là "S + had + been + V-ing".', opts: ['A. Đúng', 'B. Sai'], ans: 0, exp: 'Đúng. Công thức chuẩn cho mọi ngôi là "had been + V-ing".' },
+              { type: 'fill', q: '7. Chia động từ (drive): How long ________ they ________________ before they found a gas station?', placeholder: 'had / been driving', acc: ['had / been driving', 'had been driving'], exp: 'Câu hỏi thời lượng trước mốc quá khứ → "had they been driving".' },
+              { type: 'mcq', q: '8. By the time the power came back, we ______ in the dark for two hours.', opts: ['A. had been sitting', 'B. have been sitting', 'C. sit', 'D. were sit'], ans: 0, exp: 'Hành động ngồi trong bóng tối suốt 2 tiếng trước khi có điện lại → "had been sitting".' },
+              { type: 'mcq', q: '9. Choose the CORRECT sentence (avoiding stative verb in continuous):', opts: ['A. They had been knowing each other for years before they got married.', 'B. They had known each other for years before they got married.', 'C. They have been knowing each other before 2020.', 'D. They had knew each other.'], ans: 1, exp: '"know" là stative verb nên dùng Past Perfect "had known".' },
+              { type: 'mcq', q: '10. If she ______ so fast, she wouldn\'t have missed the turn.', opts: ['A. hadn\'t been driving', 'B. hasn\'t been driving', 'C. wasn\'t drive', 'D. didn\'t driving'], ans: 0, exp: 'Điều kiện loại 3 nhấn mạnh hành động đang diễn ra lúc đó → "hadn\'t been driving".' }
+            ]
+          }
+        ]
+      },
+      {
+        code: '3',
+        title: '3. Future',
+        vi: 'Các thì Tương lai',
+        desc: 'Diễn tả quyết định tức thì, dự đoán, hành động đang diễn ra tại một mốc tương lai hoặc hoàn tất trước mốc tương lai.',
+        subtopics: [
+          {
+            name: 'Future Simple',
+            vi: 'Thì Tương lai đơn',
+            def: 'Future Simple (Thì Tương lai đơn với "will + V0") diễn tả quyết định đưa ra ngay tại thời điểm nói, lời hứa, lời đề nghị giúp đỡ, lời yêu cầu lịch sự hoặc dự đoán dựa trên quan điểm/niềm tin cá nhân.',
+            usage: [
+              '[Cơ bản] Quyết định tức thì ngay lúc nói: "Oh, it\'s cold in here. I will close the window."',
+              '[Cơ bản] Lời hứa, cam kết hoặc đề nghị giúp đỡ: "I will send you the notes tonight." / "I will carry that bag for you."',
+              '[Trung cấp] Dự đoán không có bằng chứng cụ thể ngay trước mắt (thường đi với think, believe, hope, probably, I\'m sure): "I think AI tools will make learning more interactive."',
+              '[Trung cấp] Lời mời hoặc yêu cầu lịch sự: "Will you help me check this sentence?"',
+              '[Nâng cao] Mệnh đề chính của câu điều kiện loại 1 (điều kiện có thật ở hiện tại/tương lai): "If you practice consistently, you will reach 750+ TOEIC."'
+            ],
+            structures: [
+              { label: 'Khẳng định (+)', formula: 'S + will + V0', ex: 'We will start the practice session soon.' },
+              { label: 'Phủ định (-)', formula: 'S + will not (won\'t) + V0', ex: 'I won\'t forget to review the vocabulary.' },
+              { label: 'Nghi vấn (?)', formula: 'Will + S + V0?', ex: 'Will you join the online class tomorrow?' }
+            ],
+            note: 'Sau "will" luôn là động từ nguyên mẫu không "to" (V0) cho mọi chủ ngữ. Không dùng "will" bên trong mệnh đề bắt đầu bằng if, unless, when, as soon as, before, after.',
+            noteEx: 'Sai: "If it will rain tomorrow, we will stay home." → Đúng: "If it rains tomorrow, we will stay home."',
+            applications: [
+              '[Cơ bản] Phản hồi nhanh trong hội thoại: "The phone is ringing." — "I\'ll answer it!"',
+              '[Cơ bản] Hứa hẹn hoặc nhắc nhở công việc: "Don\'t worry, I\'ll finish the report before noon."',
+              '[Trung cấp] Dự đoán xu hướng trong IELTS Speaking Part 3 & Writing Task 2: "In the future, more employees will work hybrid schedules."',
+              '[Trung cấp] Thông báo & cam kết dịch vụ trong email công việc: "Our team will respond to your inquiry within 24 hours."',
+              '[Nâng cao] Câu điều kiện loại 1 trong đàm phán & lập kế hoạch.'
+            ],
+            exercises: [
+              { type: 'mcq', q: '1. "I forgot my pen." — "Don\'t worry, I ______ you mine."', opts: ['A. lend', 'B. will lend', 'C. am going to lent', 'D. lent'], ans: 1, exp: 'Quyết định giúp đỡ tức thì ngay tại lúc nói → dùng Future Simple "will lend".' },
+              { type: 'mcq', q: '2. I think our team ______ the project successfully next month.', opts: ['A. completes', 'B. will complete', 'C. completed', 'D. has completed'], ans: 1, exp: 'Dự đoán theo quan điểm cá nhân ("I think") → "will complete".' },
+              { type: 'fill', q: '3. Chia động từ phủ định (not / be): Don\'t worry, I ______________ late for tomorrow\'s class.', placeholder: "won't be / will not be", acc: ["won't be", 'will not be'], exp: 'Lời hứa ở tương lai đơn phủ định → "won\'t be" hoặc "will not be".' },
+              { type: 'mcq', q: '4. If you review these flashcards daily, you ______ them easily.', opts: ['A. remember', 'B. will remember', 'C. remembered', 'D. would remembered'], ans: 1, exp: 'Mệnh đề chính của câu điều kiện loại 1 → "will remember".' },
+              { type: 'mcq', q: '5. ______ you please turn down the volume a little bit?', opts: ['A. Will', 'B. Are', 'C. Did', 'D. Have'], ans: 0, exp: 'Câu yêu cầu lịch sự bắt đầu bằng "Will you please + V0?".' },
+              { type: 'tf', q: '6. Đúng hay Sai: Dạng viết tắt phủ định của "will not" là "won\'t".', opts: ['A. Đúng', 'B. Sai'], ans: 0, exp: 'Đúng. will not = won\'t.' },
+              { type: 'fill', q: '7. Chia động từ (call): I promise I ______________ you as soon as I get home.', placeholder: 'will call', acc: ['will call', "'ll call"], exp: 'Lời hứa dùng Future Simple "will call".' },
+              { type: 'mcq', q: '8. She ______ probably ______ us after she finishes her shift.', opts: ['A. will / join', 'B. is / join', 'C. will / joins', 'D. does / joined'], ans: 0, exp: 'Dự đoán với "probably" + V0 → "will / join".' },
+              { type: 'mcq', q: '9. Which sentence uses "will" for an instant decision?', opts: ['A. Look at those black clouds! It\'s going to rain.', 'B. The doorbell is ringing. I\'ll open it.', 'C. We are flying to Tokyo next Sunday.', 'D. The train leaves at 6 AM.'], ans: 1, exp: 'Câu B là quyết định tức thì ngay khi nghe tiếng chuông cửa.' },
+              { type: 'mcq', q: '10. Choose the CORRECT sentence:', opts: ['A. He will goes to the gym.', 'B. When he will come, tell him to wait.', 'C. We will send you the link shortly.', 'D. They won\'t to arrive early.'], ans: 2, exp: 'Câu C đúng cấu trúc "will + V0".' }
+            ]
+          },
+          {
+            name: 'Future Continuous',
+            vi: 'Thì Tương lai tiếp diễn',
+            def: 'Future Continuous (Thì Tương lai tiếp diễn) diễn tả hành động sẽ đang diễn ra tại một thời điểm cụ thể trong tương lai, hoặc một sự việc đã được lên lịch/diễn ra theo thông lệ tự nhiên trong tương lai.',
+            usage: [
+              '[Cơ bản] Hành động sẽ đang diễn ra tại một giờ/mốc xác định trong tương lai: "At 8:00 PM tonight, I will be teaching an online class."',
+              '[Cơ bản] Hành động đang diễn ra trong tương lai thì có hành động khác xen vào (chia Present Simple): "I will be waiting at the gate when your plane lands."',
+              '[Trung cấp] Hành động sẽ diễn ra như một phần của lịch trình thường nhật trong tương lai: "Don\'t call at 7 PM; we will be having dinner then."',
+              '[Trung cấp] Hỏi lịch sự về kế hoạch của người khác để nhờ vả hoặc phối hợp: "Will you be using the laptop later this evening?"',
+              '[Nâng cao] Dự đoán điều đang xảy ra ở hiện tại/tương lai gần một cách tự nhiên: "It\'s 9 PM in Tokyo now, so she will probably be sleeping."'
+            ],
+            structures: [
+              { label: 'Khẳng định (+)', formula: 'S + will + be + V-ing', ex: 'This time tomorrow, we will be traveling to Da Lat.' },
+              { label: 'Phủ định (-)', formula: 'S + will not (won\'t) + be + V-ing', ex: 'I won\'t be working this Sunday afternoon.' },
+              { label: 'Nghi vấn (?)', formula: 'Will + S + be + V-ing?', ex: 'Will you be attending the workshop next week?' }
+            ],
+            note: 'Mệnh đề thời gian đi kèm (when, while, at the time...) luôn chia ở Present Simple, không dùng "will" trong mệnh đề phụ đó.',
+            noteEx: 'Đúng: "When you arrive tomorrow, I will be waiting for you."',
+            applications: [
+              '[Cơ bản] Báo trước khung giờ bận trong tương lai: "Please message me after 9 PM; I will be teaching from 7 to 9."',
+              '[Cơ bản] Hẹn đón người thân/đồng nghiệp: "I will be standing near the main exit when you come out."',
+              '[Trung cấp] Hỏi mượn đồ hoặc nhờ việc một cách lịch sự: "Will you be passing by the post office on your way home?"',
+              '[Trung cấp] Hình dung viễn cảnh tương lai trong IELTS Speaking Part 2/3: "Ten years from now, more students will be learning through virtual classrooms."',
+              '[Nâng cao] Bài thi TOEIC Part 5 nhận diện mốc giờ cụ thể ở tương lai ("This time next week / At 10 AM tomorrow").'
+            ],
+            exercises: [
+              { type: 'mcq', q: '1. This time tomorrow, we ______ on the beach in Nha Trang.', opts: ['A. relax', 'B. will be relaxing', 'C. relaxed', 'D. have relaxed'], ans: 1, exp: '"This time tomorrow" chỉ thời điểm xác định trong tương lai → Future Continuous "will be relaxing".' },
+              { type: 'mcq', q: '2. Don\'t phone me between 7 and 8 PM tonight; I ______ dinner.', opts: ['A. will have', 'B. will be having', 'C. had', 'D. have had'], ans: 1, exp: 'Hành động sẽ đang diễn ra trong khung giờ tương lai → "will be having".' },
+              { type: 'fill', q: '3. Chia động từ (wait): When your train arrives tomorrow, I ______________________ for you at the platform.', placeholder: 'will be waiting', acc: ['will be waiting', "'ll be waiting"], exp: 'Hành động đang diễn ra trong tương lai khi sự việc khác tới → "will be waiting".' },
+              { type: 'mcq', q: '4. ______ you ______ your computer tonight? I need to send an urgent email.', opts: ['A. Will / be using', 'B. Do / using', 'C. Are / use', 'D. Will / used'], ans: 0, exp: 'Hỏi lịch sự về kế hoạch sử dụng trong tương lai gần → "Will / be using".' },
+              { type: 'mcq', q: '5. At 10:00 AM next Monday, the team ______ the new curriculum.', opts: ['A. will be presenting', 'B. presents', 'C. presented', 'D. has presented'], ans: 0, exp: 'Mốc giờ cụ thể trong tương lai ("At 10:00 AM next Monday") → "will be presenting".' },
+              { type: 'tf', q: '6. Đúng hay Sai: Cấu trúc của Future Continuous là "S + will + be + V-ing".', opts: ['A. Đúng', 'B. Sai'], ans: 0, exp: 'Đúng. Công thức chuẩn là "will be + V-ing".' },
+              { type: 'fill', q: '7. Chia động từ phủ định (not / work): Next Saturday afternoon, she ______________________; she will be free.', placeholder: "won't be working / will not be working", acc: ["won't be working", 'will not be working'], exp: 'Phủ định Future Continuous → "won\'t be working".' },
+              { type: 'mcq', q: '8. In 2035, millions of people ______ in smart, eco-friendly cities.', opts: ['A. will be living', 'B. lived', 'C. have lived', 'D. were living'], ans: 0, exp: 'Bức tranh diễn tiến tại một mốc tương lai xa → "will be living".' },
+              { type: 'mcq', q: '9. While you are flying to Singapore tomorrow, I ______ in my office.', opts: ['A. will be working', 'B. worked', 'C. am work', 'D. have worked'], ans: 0, exp: 'Hai hành động diễn ra song song trong tương lai → mệnh đề chính dùng "will be working".' },
+              { type: 'mcq', q: '10. Choose the CORRECT sentence:', opts: ['A. At 9 PM tonight, I will studying.', 'B. She will be sleep when we get home.', 'C. We will be taking the exam at this time next Friday.', 'D. Will you be go to the party?'], ans: 2, exp: 'Câu C đúng cấu trúc "will be + V-ing" với mốc "at this time next Friday".' }
+            ]
+          },
+          {
+            name: 'Future Perfect',
+            vi: 'Thì Tương lai hoàn thành',
+            def: 'Future Perfect (Thì Tương lai hoàn thành) diễn tả một hành động hoặc mục tiêu sẽ được hoàn tất TRƯỚC một thời điểm xác định hoặc TRƯỚC một hành động khác trong tương lai.',
+            usage: [
+              '[Cơ bản] Hoàn thành trước một mốc giờ/ngày tương lai với "by + mốc tương lai": "I will have finished this report by 5:00 PM today."',
+              '[Cơ bản] Hoàn thành trước một sự kiện tương lai khác với "by the time / before + Present Simple": "By the time you wake up tomorrow, I will have left for work."',
+              '[Trung cấp] Cam kết tiến độ dự án/công việc trước thời hạn (deadline): "The developers will have launched the website by the end of this month."',
+              '[Trung cấp] Dự đoán kết quả đã hoàn tất tính đến một năm mốc tương lai: "By 2030, renewable energy will have replaced a large share of fossil fuels."',
+              '[Nâng cao] Suy đoán điều chắc hẳn đã xong ở hiện tại với "will have + V3": "It\'s 10 PM; their flight will have landed by now."'
+            ],
+            structures: [
+              { label: 'Khẳng định (+)', formula: 'S + will + have + V3/ed', ex: 'She will have completed all 24 modules by Sunday.' },
+              { label: 'Phủ định (-)', formula: 'S + will not (won\'t) + have + V3/ed', ex: 'We won\'t have finished cleaning before 6 PM.' },
+              { label: 'Nghi vấn (?)', formula: 'Will + S + have + V3/ed?', ex: 'Will you have graduated by next July?' }
+            ],
+            note: 'Dấu hiệu nhận biết đặc trưng nhất là "by + mốc thời gian tương lai" (by tomorrow, by next week, by the end of the year) và "by the time + mệnh đề Hiện tại đơn".',
+            noteEx: 'Đúng: "By the time the teacher arrives, we will have finished the exercise."',
+            applications: [
+              '[Cơ bản] Đặt mục tiêu học tập có deadline rõ ràng: "By the end of this month, I will have learned 500 new TOEIC words."',
+              '[Cơ bản] Cam kết thời hạn bàn giao công việc: "I will have sent you the final file by noon tomorrow."',
+              '[Trung cấp] Viết dự báo tương lai trong IELTS Writing Task 1 (bảng/biểu đồ có năm tương lai như 2030): "By 2030, the urban population will have risen to 70%."',
+              '[Trung cấp] Nói về kế hoạch dài hạn trong IELTS Speaking Part 3: "Hopefully, by the time I turn thirty-five, I will have built a full online academy."',
+              '[Nâng cao] Bài thi TOEIC Part 5 nhận diện cụm "by + thời điểm tương lai".'
+            ],
+            exercises: [
+              { type: 'mcq', q: '1. By the end of this week, we ______ all the grammar units.', opts: ['A. finish', 'B. will have finished', 'C. finished', 'D. are finishing'], ans: 1, exp: '"By the end of this week" chỉ việc hoàn tất trước mốc tương lai → Future Perfect "will have finished".' },
+              { type: 'mcq', q: '2. By the time you get home tonight, I ______ dinner.', opts: ['A. will have cooked', 'B. cook', 'C. cooked', 'D. am cook'], ans: 0, exp: 'Hành động nấu ăn xong trước lúc bạn về nhà tối nay → "will have cooked".' },
+              { type: 'fill', q: '3. Chia động từ (complete): She ______________________ her master\'s degree by next June.', placeholder: 'will have completed', acc: ['will have completed', "'ll have completed"], exp: '"by next June" → dùng Future Perfect "will have completed".' },
+              { type: 'mcq', q: '4. The contractor ______ the new classroom before the new semester begins.', opts: ['A. will have built', 'B. built', 'C. builds', 'D. was building'], ans: 0, exp: 'Hoàn tất việc xây dựng trước mốc tương lai "before the new semester begins" → "will have built".' },
+              { type: 'mcq', q: '5. ______ they ______ the report by 4:00 PM today?', opts: ['A. Will / have submitted', 'B. Do / have submitted', 'C. Will / submitted', 'D. Have / will submitted'], ans: 0, exp: 'Câu nghi vấn Future Perfect: "Will + S + have + V3/ed?".' },
+              { type: 'tf', q: '6. Đúng hay Sai: Sau "by the time" ở ngữ cảnh tương lai, động từ chia ở Present Simple, còn mệnh đề chính chia Future Perfect.', opts: ['A. Đúng', 'B. Sai'], ans: 0, exp: 'Đúng. Ví dụ: "By the time she arrives, we will have started."' },
+              { type: 'fill', q: '7. Chia động từ (save): By December, I ______________________ enough money for a new laptop.', placeholder: 'will have saved', acc: ['will have saved', "'ll have saved"], exp: '"By December" → "will have saved".' },
+              { type: 'mcq', q: '8. Don\'t come at 5 PM; the workshop ______ by then.', opts: ['A. will have ended', 'B. ends', 'C. ended', 'D. was ending'], ans: 0, exp: '"by then" (trước lúc đó ở tương lai) → "will have ended".' },
+              { type: 'mcq', q: '9. We ______ all the invitations before Friday morning.', opts: ['A. will have sent', 'B. send', 'C. sent', 'D. are send'], ans: 0, exp: 'Hoàn tất trước mốc tương lai "before Friday morning" → "will have sent".' },
+              { type: 'mcq', q: '10. Choose the CORRECT sentence:', opts: ['A. By next year, she will has lived here for ten years.', 'B. By next year, she will have lived here for ten years.', 'C. By next year, she will had lived here.', 'D. By next year, she have lived here.'], ans: 1, exp: 'Sau "will" luôn dùng "have" (không dùng "has") + V3/ed → Câu B chính xác.' }
+            ]
+          },
+          {
+            name: 'Future Perfect Continuous',
+            vi: 'Thì Tương lai hoàn thành tiếp diễn',
+            def: 'Future Perfect Continuous (Thì Tương lai hoàn thành tiếp diễn) nhấn mạnh khoảng thời gian liên tục mà một hành động sẽ đã diễn ra tính đến một mốc thời gian xác định trong tương lai.',
+            usage: [
+              '[Cơ bản] Nhấn mạnh số năm/tháng/giờ liên tục tính đến một mốc tương lai: "By next month, I will have been teaching here for five years."',
+              '[Cơ bản] Hành động diễn ra liên tục trước một sự kiện tương lai khác: "When you arrive at 9 PM, I will have been studying for three hours."',
+              '[Trung cấp] Kỷ niệm cột mốc gắn bó với công việc, dự án hoặc thói quen: "By 2027, they will have been developing educational apps for a decade."',
+              '[Trung cấp] Giải thích nguyên nhân mệt mỏi tại một thời điểm tương lai: "She will be tired tonight because she will have been driving all day."',
+              '[Nâng cao] Phân biệt với Future Perfect: nhấn mạnh tính liên tục của quá trình ("for two hours") thay vì kết quả đã hoàn tất.'
+            ],
+            structures: [
+              { label: 'Khẳng định (+)', formula: 'S + will + have + been + V-ing', ex: 'By 8 PM, we will have been practicing for two hours.' },
+              { label: 'Phủ định (-)', formula: 'S + will not (won\'t) + have + been + V-ing', ex: 'He won\'t have been working here long by June.' },
+              { label: 'Nghi vấn (?)', formula: 'Will + S + have + been + V-ing?', ex: 'How long will you have been living here by next year?' }
+            ],
+            note: 'Thường có đồng thời 2 yếu tố: mốc tương lai ("by + mốc thời gian / when + Present Simple") VÀ khoảng thời gian liên tục ("for + khoảng thời gian"). Không dùng với Stative verbs (know, own, love...).',
+            noteEx: 'Đúng: "By next Friday, she will have been working on this project for six months."',
+            applications: [
+              '[Cơ bản] Tính cột mốc thâm niên học tập/làm việc: "By the end of this year, I will have been learning English for four years."',
+              '[Cơ bản] Diễn tả sự vất vả của một ca làm/chuyến đi sắp tới: "When we land in London, we will have been flying for twelve hours."',
+              '[Trung cấp] Trả lời phỏng vấn hoặc giới thiệu kinh nghiệm tính đến mốc tuyển dụng: "By the start date, I will have been managing online classes for seven years."',
+              '[Trung cấp] Nâng cao độ chính xác diễn đạt thời lượng trong IELTS Speaking: "By next summer, my family will have been living in this neighborhood for a decade."',
+              '[Nâng cao] Bài thi ngữ pháp phân biệt cụm "by + mốc tương lai + for + khoảng thời gian".'
+            ],
+            exercises: [
+              { type: 'mcq', q: '1. By next October, he ______ English at this center for eight years.', opts: ['A. will have been teaching', 'B. will teach', 'C. has been teaching', 'D. taught'], ans: 0, exp: 'Kết hợp mốc tương lai ("By next October") + khoảng thời gian liên tục ("for eight years") → Future Perfect Continuous.' },
+              { type: 'mcq', q: '2. When their plane lands tonight, they ______ for over ten hours.', opts: ['A. will have been traveling', 'B. traveled', 'C. have traveled', 'D. are traveling'], ans: 0, exp: 'Thời lượng bay liên tục tính đến lúc hạ cánh tối nay → "will have been traveling".' },
+              { type: 'fill', q: '3. Chia động từ (wait): By 6:00 PM, we ______________________ for two hours.', placeholder: 'will have been waiting', acc: ['will have been waiting', "'ll have been waiting"], exp: '"By 6:00 PM" + "for two hours" → "will have been waiting".' },
+              { type: 'mcq', q: '4. She will be very tired when she arrives because she ______ all day.', opts: ['A. will have been driving', 'B. drove', 'C. drives', 'D. was driving'], ans: 0, exp: 'Quá trình lái xe liên tục cả ngày dẫn đến sự mệt mỏi ở tương lai → "will have been driving".' },
+              { type: 'mcq', q: '5. How long ______ you ______ in Ho Chi Minh City by the end of 2027?', opts: ['A. will / have been living', 'B. do / live', 'C. have / lived', 'D. will / living'], ans: 0, exp: 'Câu hỏi khoảng thời gian tính tới mốc tương lai → "will / have been living".' },
+              { type: 'tf', q: '6. Đúng hay Sai: Future Perfect Continuous thường đi kèm cả mốc tương lai (by...) và khoảng thời gian (for...).', opts: ['A. Đúng', 'B. Sai'], ans: 0, exp: 'Đúng. Đây là dấu hiệu nhận diện rõ nhất của thì này.' },
+              { type: 'fill', q: '7. Chia động từ (study): By midnight, I ______________________ grammar for four straight hours.', placeholder: 'will have been studying', acc: ['will have been studying', "'ll have been studying"], exp: '"By midnight" + "for four straight hours" → "will have been studying".' },
+              { type: 'mcq', q: '8. Choose the CORRECT sentence (avoiding stative verb in continuous):', opts: ['A. By next year, I will have been knowing him for ten years.', 'B. By next year, I will have known him for ten years.', 'C. By next year, I will knew him for ten years.', 'D. By next year, I have known him.'], ans: 1, exp: '"know" là stative verb nên dùng Future Perfect "will have known".' },
+              { type: 'mcq', q: '9. By the time the concert starts, fans ______ outside the stadium since morning.', opts: ['A. will have been waiting', 'B. waited', 'C. wait', 'D. were waiting'], ans: 0, exp: 'Hành động chờ liên tục từ sáng cho tới lúc buổi hòa nhạc bắt đầu ở tương lai → "will have been waiting".' },
+              { type: 'mcq', q: '10. Choose the CORRECT structure of Future Perfect Continuous:', opts: ['A. S + will + has + been + V-ing', 'B. S + will + have + been + V-ing', 'C. S + will + be + have + V-ing', 'D. S + will + have + V3'], ans: 1, exp: 'Cấu trúc chuẩn là "S + will + have + been + V-ing".' }
+            ]
+          }
+        ]
+      },
+      {
+        code: '4',
+        title: '4. Tense Comparison',
+        vi: 'So sánh các cặp thì',
+        desc: 'Phân biệt rạch ròi các cặp thì dễ nhầm lẫn nhất trong giao tiếp thực tế và các kỳ thi ngữ pháp.',
+        subtopics: [
+          {
+            name: 'Present Perfect vs Past Simple',
+            vi: 'Hiện tại hoàn thành vs. Quá khứ đơn',
+            def: 'Sự khác biệt cốt lõi nằm ở mối liên hệ với hiện tại: Past Simple nói về hành động đã kết thúc hoàn toàn ở một thời điểm quá khứ xác định (tách rời hiện tại); Present Perfect nói về hành động xảy ra trong quá khứ nhưng không rõ thời điểm hoặc vẫn kéo dài/tác động tới hiện tại.',
+            usage: [
+              '[Cơ bản - Past Simple] Có mốc thời gian quá khứ đã chấm dứt (yesterday, in 2023, last night, two hours ago): "I finished the report yesterday."',
+              '[Cơ bản - Present Perfect] Không nêu mốc thời gian cụ thể, nhấn mạnh kết quả hiện tại: "I have finished the report. Here it is!"',
+              '[Trung cấp - Hành động chấm dứt vs. còn tiếp tục] "He lived in Hanoi for 5 years (giờ không sống ở đó nữa)" vs. "He has lived in Hanoi for 5 years (vẫn đang sống ở đó)."',
+              '[Trung cấp - Mở đầu & chi tiết] Mở đầu trải nghiệm bằng Present Perfect, sau đó kể chi tiết thời gian/địa điểm bằng Past Simple: "I have been to Da Nang. I went there last summer."',
+              '[Nâng cao - Khoảng thời gian chưa kết thúc vs. đã kết thúc] "I have drunk two cups of coffee this morning (vẫn đang buổi sáng)" vs. "I drank two cups of coffee this morning (đã sang buổi chiều/tối)."'
+            ],
+            structures: [
+              { label: 'Past Simple (Chấm dứt hẳn)', formula: 'S + V2/ed + [yesterday / ago / last... / in + năm quá khứ]', ex: 'She joined our team in 2024.' },
+              { label: 'Present Perfect (Gắn hiện tại)', formula: 'S + have/has + V3/ed + [for / since / just / already / yet / ever / never]', ex: 'She has worked with us since 2024.' }
+            ],
+            note: 'Tuyệt đối không dùng thì Hiện tại hoàn thành với các trạng từ chỉ thời gian quá khứ đã chấm dứt như yesterday, last week, in 2020, ... ago, hoặc trong câu hỏi bắt đầu bằng "When...?".',
+            noteEx: 'Sai: "When have you bought this laptop?" → Đúng: "When did you buy this laptop?"',
+            applications: [
+              '[Cơ bản] Trò chuyện về phim/sách: "Have you watched that movie?" — "Yes, I watched it last weekend."',
+              '[Cơ bản] Thông báo mất đồ và tìm thấy: "I have lost my keys!" (vẫn đang mất) vs. "I lost my keys yesterday, but I found them."',
+              '[Trung cấp] Trả lời phỏng vấn xin việc (CV): "I have taught TOEIC for five years. In 2025, I launched my own online platform."',
+              '[Trung cấp] IELTS Speaking Part 1 & 2 chuyển mạch tự nhiên từ trải nghiệm tổng quát sang câu chuyện cụ thể.',
+              '[Nâng cao] Bài thi TOEIC Part 5 nhận diện bẫy "since + năm quá khứ" (Present Perfect) vs. "in + năm quá khứ" (Past Simple).'
+            ],
+            exercises: [
+              { type: 'mcq', q: '1. I ______ to Ho Chi Minh City three times, and I ______ there last month.', opts: ['A. have been / went', 'B. went / have been', 'C. have been / have gone', 'D. was / went'], ans: 0, exp: 'Vế đầu nêu trải nghiệm ("three times" → have been); vế sau nêu thời điểm cụ thể ("last month" → went).' },
+              { type: 'mcq', q: '2. When ______ you ______ designing this interactive website?', opts: ['A. have / started', 'B. did / start', 'C. has / started', 'D. do / started'], ans: 1, exp: 'Câu hỏi "When...?" hỏi mốc thời gian quá khứ dùng Past Simple "did / start".' },
+              { type: 'fill', q: '3. Chia động từ (live): My uncle ______________ in Can Tho since 2018 and he loves it there.', placeholder: 'has lived', acc: ['has lived', "'s lived"], exp: 'Hành động bắt đầu năm 2018 và vẫn tiếp tục đến nay → "has lived".' },
+              { type: 'mcq', q: '4. Shakespeare ______ many famous plays in the 16th and 17th centuries.', opts: ['A. has written', 'B. wrote', 'C. writes', 'D. has been writing'], ans: 1, exp: 'Nhân vật lịch sử đã qua đời và thời gian đã chấm dứt → Past Simple "wrote".' },
+              { type: 'mcq', q: '5. Oh no! Someone ______ my umbrella. It\'s not on the rack anymore.', opts: ['A. took', 'B. has taken', 'C. takes', 'D. was take'], ans: 1, exp: 'Hành động vừa xảy ra để lại kết quả ở hiện tại ("không còn trên giá nữa") → "has taken".' },
+              { type: 'tf', q: '6. Đúng hay Sai: Có thể dùng "yesterday" với thì Hiện tại hoàn thành (Present Perfect).', opts: ['A. Đúng', 'B. Sai'], ans: 1, exp: 'Sai. "yesterday" là mốc quá khứ đã chấm dứt nên bắt buộc dùng Past Simple.' },
+              { type: 'fill', q: '7. Chia động từ (finish): We ______________________ all the exercises ten minutes ago.', placeholder: 'finished', acc: ['finished'], exp: '"ten minutes ago" → Past Simple "finished".' },
+              { type: 'mcq', q: '8. She ______ in that company for four years before she started her own business.', opts: ['A. has worked', 'B. worked', 'C. works', 'D. is working'], ans: 1, exp: 'Khoảng thời gian 4 năm đã chấm dứt trong quá khứ ("before she started...") → Past Simple "worked".' },
+              { type: 'mcq', q: '9. ______ you ever ______ a live online lesson via Google Meet?', opts: ['A. Did / teach', 'B. Have / taught', 'C. Were / teach', 'D. Has / taught'], ans: 1, exp: 'Hỏi trải nghiệm với "ever" → "Have / taught".' },
+              { type: 'mcq', q: '10. Choose the CORRECT pair: "Technology ______ rapidly in recent years, and in 2026 AI tools ______ even smarter."', opts: ['A. has developed / became', 'B. developed / have become', 'C. has developed / have become', 'D. develops / became'], ans: 0, exp: '"in recent years" (từ quá khứ đến nay → has developed); "in 2026" nêu sự kiện cụ thể đã diễn ra trong năm → "became".' }
+            ]
+          },
+          {
+            name: 'Will vs Going To',
+            vi: 'So sánh Will vs. Be Going To',
+            def: 'Cả "will" và "be going to" đều nói về tương lai, nhưng khác nhau ở thời điểm ra quyết định và căn cứ dự đoán: "will" là quyết định tức thì ngay lúc nói hoặc dự đoán chủ quan; "be going to" là dự định đã có kế hoạch từ trước hoặc dự đoán dựa trên dấu hiệu thực tế nhìn thấy ngay hiện tại.',
+            usage: [
+              '[Cơ bản - Will: Quyết định tức thì] "The phone is ringing." — "I\'ll get it!" (Chưa hề định trước).',
+              '[Cơ bản - Going to: Kế hoạch đã định trước] "Why did you buy paint?" — "I\'m going to paint my room this weekend." (Đã mua sơn chuẩn bị sẵn).',
+              '[Trung cấp - Will: Dự đoán chủ quan] "I think people will live longer in the future." (Dựa vào suy nghĩ/niềm tin).',
+              '[Trung cấp - Going to: Dự đoán có bằng chứng hiện tại] "Look at those dark clouds! It is going to rain soon." (Nhìn thấy mây đen rõ rệt).',
+              '[Nâng cao - Lời hứa/đề nghị vs. Ý định cá nhân] Dùng "will" cho lời hứa ("I won\'t tell anyone") và "going to" cho mục tiêu đã lên kế hoạch ("I\'m going to take the TOEIC test next month").'
+            ],
+            structures: [
+              { label: 'Will (Tức thì / Dự đoán chủ quan)', formula: 'S + will + V0', ex: 'Hold on, I will help you carry those books.' },
+              { label: 'Be going to (Kế hoạch sẵn / Bằng chứng)', formula: 'S + am/is/are + going to + V0', ex: 'Look at the traffic! We are going to be late.' }
+            ],
+            note: 'Khi kế hoạch tương lai đã được sắp xếp thời gian, địa điểm hoặc đặt vé cụ thể với người khác, người bản ngữ còn ưu tiên dùng Present Continuous (vd: "I\'m meeting my tutor at 7 PM tonight").',
+            noteEx: 'So sánh: "I\'ll call him now." (nghĩ ra ngay) vs. "I\'m going to call him tonight." (đã định sẵn).',
+            applications: [
+              '[Cơ bản] Đề nghị giúp đỡ ngay lập tức: "Your bag looks heavy. I\'ll carry it for you."',
+              '[Cơ bản] Chia sẻ kế hoạch cuối tuần đã chuẩn bị: "We\'re going to visit our grandparents in Rach Gia this Sunday."',
+              '[Trung cấp] Cảnh báo tình huống sắp xảy ra dựa trên quan sát: "Watch out! That glass is going to fall off the table!"',
+              '[Trung cấp] Nêu mục tiêu học tập & dự đoán tương lai trong IELTS Speaking Part 1 & 3.',
+              '[Nâng cao] Bài thi ngữ pháp phân biệt tình huống hội thoại 2 lượt (A hỏi lý do chuẩn bị → B trả lời bằng "going to").'
+            ],
+            exercises: [
+              { type: 'mcq', q: '1. Look at the black clouds in the sky! It ______ very soon.', opts: ['A. will rain', 'B. is going to rain', 'C. rains', 'D. rained'], ans: 1, exp: 'Dự đoán có bằng chứng nhìn thấy rõ trước mắt ("black clouds") → "is going to rain".' },
+              { type: 'mcq', q: '2. "Someone is knocking at the door." — "Okay, I ______ who it is."', opts: ['A. am going to see', 'B. will see', 'C. see', 'D. saw'], ans: 1, exp: 'Quyết định tức thì ngay lúc nghe tiếng gõ cửa → "will see".' },
+              { type: 'fill', q: '3. Chia động từ (visit): We have already booked the bus tickets; we ______________________ Da Lat next weekend.', placeholder: 'are going to visit', acc: ['are going to visit', "'re going to visit"], exp: 'Kế hoạch đã chuẩn bị sẵn (đã đặt vé) → "are going to visit".' },
+              { type: 'mcq', q: '4. I promise I ______ you as soon as the results are published.', opts: ['A. will text', 'B. am going to texted', 'C. text', 'D. texted'], ans: 0, exp: 'Lời hứa dùng "will + V0" → "will text".' },
+              { type: 'mcq', q: '5. "Why are you turning on the computer?" — "I ______ an online lesson."', opts: ['A. will design', 'B. am going to design', 'C. designed', 'D. have designed'], ans: 1, exp: 'Hành động đã có ý định trước khi bật máy tính → "am going to design".' },
+              { type: 'tf', q: '6. Đúng hay Sai: Khi dự đoán dựa trên dấu hiệu rõ ràng ngay trước mắt, ta ưu tiên dùng "be going to".', opts: ['A. Đúng', 'B. Sai'], ans: 0, exp: 'Đúng. Bằng chứng hiện tại → "be going to".' },
+              { type: 'fill', q: '7. Chia động từ (help): "I can\'t solve this math problem." — "Show me, I ______________ you."', placeholder: 'will help', acc: ['will help', "'ll help"], exp: 'Đề nghị giúp đỡ ngay lập tức → "will help".' },
+              { type: 'mcq', q: '8. Watch out! You ______ your coffee on the keyboard!', opts: ['A. will spill', 'B. are going to spill', 'C. spill', 'D. spilled'], ans: 1, exp: 'Cảnh báo sự việc sắp xảy ra ngay trước mắt → "are going to spill".' },
+              { type: 'mcq', q: '9. In my opinion, electric vehicles ______ much cheaper in ten years.', opts: ['A. will become', 'B. are going to became', 'C. became', 'D. have become'], ans: 0, exp: 'Dự đoán mang tính quan điểm cá nhân ("In my opinion") → "will become".' },
+              { type: 'mcq', q: '10. Choose the CORRECT sentence:', opts: ['A. Look! The baby is going to fall!', 'B. Look! The baby will falling!', 'C. I am going to help you right now (instant offer).', 'D. She is going to visits her aunt tomorrow.'], ans: 0, exp: 'Câu A diễn tả sự việc sắp xảy ra có dấu hiệu trực quan trước mắt.' }
+            ]
+          },
+          {
+            name: 'Past Simple vs Past Continuous',
+            vi: 'So sánh Quá khứ đơn vs. Quá khứ tiếp diễn',
+            def: 'Past Simple diễn tả hành động trọn vẹn, ngắn gọn hoặc nối tiếp nhau trong quá khứ; Past Continuous diễn tả hành động đang diễn tiến kéo dài làm nền tại một thời điểm quá khứ hoặc đang xảy ra thì bị hành động Past Simple xen vào.',
+            usage: [
+              '[Cơ bản - Hành động ngắn xen vào hành động dài] "I was reading a book (dài - Past Continuous) when my friend called (ngắn - Past Simple)."',
+              '[Cơ bản - Hai hành động xảy ra nối tiếp nhau] "When my friend called, I closed my book and answered the phone." (Cả hai đều là Past Simple vì xảy ra cái này rồi tới cái kia).',
+              '[Trung cấp - Hai hành động song song cùng kéo dài] "While I was teaching online, my wife was preparing dinner." (Cả hai cùng Past Continuous).',
+              '[Trung cấp - Tại một mốc giờ cụ thể] "At 9 PM yesterday, I went to bed (lúc 9h bắt đầu đi ngủ)" vs. "At 9 PM yesterday, I was sleeping (lúc 9h đang ngủ rồi)."',
+              '[Nâng cao - Bối cảnh câu chuyện vs. Sự kiện chính] Dùng Past Continuous để vẽ bối cảnh và Past Simple để đẩy cốt truyện tiến lên.'
+            ],
+            structures: [
+              { label: 'Xen vào (Nền dài + Hành động ngắn)', formula: 'S1 + was/were + V-ing + when + S2 + V2/ed', ex: 'She was walking home when it started to rain.' },
+              { label: 'Song song vs. Nối tiếp', formula: 'While + Past Cont, Past Cont  |  When + Past Simple, Past Simple', ex: 'While he was speaking, everyone was listening.' }
+            ],
+            note: 'Cẩn thận sự khác biệt nghĩa khi dùng cùng từ "when": "When I arrived, they ate dinner" (tôi đến rồi họ mới ăn) khác hẳn "When I arrived, they were eating dinner" (lúc tôi đến họ đang ăn dở).',
+            noteEx: 'So sánh: "When the teacher entered, the students stood up." (nối tiếp) vs. "When the teacher entered, the students were chatting." (đang diễn ra).',
+            applications: [
+              '[Cơ bản] Kể lại sự cố bất ngờ: "I was riding my motorbike when a dog suddenly ran across the road."',
+              '[Cơ bản] Mô tả không khí lớp học/sự kiện: "When I entered the room, students were discussing the answers in pairs."',
+              '[Trung cấp] IELTS Speaking Part 2 kể chuyện trải nghiệm đáng nhớ với mở đầu bối cảnh sinh động.',
+              '[Trung cấp] Bài tập đọc hiểu & tường thuật tin tức phân biệt thứ tự sự việc.',
+              '[Nâng cao] Bài thi TOEIC/THPTQG câu hỏi điền cặp động từ với "when" và "while".'
+            ],
+            exercises: [
+              { type: 'mcq', q: '1. When I ______ into the classroom, the students ______ for the quiz.', opts: ['A. walked / were preparing', 'B. was walking / prepared', 'C. walked / prepared', 'D. was walking / were prepare'], ans: 0, exp: 'Hành động bước vào (ngắn → walked) xen vào hành động đang chuẩn bị (dài → were preparing).' },
+              { type: 'mcq', q: '2. When the alarm ______, he ______ up immediately and turned it off.', opts: ['A. was ringing / woke', 'B. rang / woke', 'C. rang / was waking', 'D. was ringing / was waking'], ans: 1, exp: 'Chuỗi hành động xảy ra nối tiếp nhau (chuông reo → thức dậy → tắt) → đều dùng Past Simple.' },
+              { type: 'fill', q: '3. Chia động từ (listen): While the instructor was explaining the chart, everyone ______________________ attentively.', placeholder: 'was listening', acc: ['was listening'], exp: 'Hai hành động kéo dài song song với "While" → "was listening".' },
+              { type: 'mcq', q: '4. At 10:30 PM last night, she ______ already ______, so she didn\'t see your message.', opts: ['A. was / sleeping', 'B. did / sleep', 'C. slept / was', 'D. is / sleeping'], ans: 0, exp: 'Tại thời điểm 10:30 tối hôm qua hành động ngủ đang diễn ra → "was / sleeping".' },
+              { type: 'mcq', q: '5. I ______ my ankle while I ______ football yesterday.', opts: ['A. twisted / was playing', 'B. was twisting / played', 'C. twisted / played', 'D. twist / was playing'], ans: 0, exp: 'Bị trật cổ chân (ngắn → twisted) trong lúc đang đá bóng (dài → was playing).' },
+              { type: 'tf', q: '6. Đúng hay Sai: "When I arrived, they were having dinner" có nghĩa là họ bắt đầu ăn sau khi tôi đến.', opts: ['A. Đúng', 'B. Sai'], ans: 1, exp: 'Sai. "were having dinner" nghĩa là họ đã bắt đầu ăn trước đó và đang ăn dở lúc tôi đến.' },
+              { type: 'fill', q: '7. Chia động từ (ring): I was taking a shower when my phone ______________.', placeholder: 'rang', acc: ['rang'], exp: 'Hành động ngắn xen vào ("when my phone...") → Past Simple "rang".' },
+              { type: 'mcq', q: '8. The sun ______ brightly, and a cool breeze ______ when we started our trip.', opts: ['A. shone / blew', 'B. was shining / was blowing', 'C. shines / blows', 'D. was shining / blew'], ans: 1, exp: 'Miêu tả bối cảnh nền song song đầu chuyến đi → cả hai dùng Past Continuous.' },
+              { type: 'mcq', q: '9. What ______ you ______ when the power went out?', opts: ['A. did / do', 'B. were / doing', 'C. was / doing', 'D. have / done'], ans: 1, exp: 'Hỏi hành động đang diễn ra lúc mất điện → "were / doing".' },
+              { type: 'mcq', q: '10. Choose the CORRECT sentence:', opts: ['A. While she cooked, I was reading.', 'B. He was driving fast when he saw the sign.', 'C. They were watch TV when I called.', 'D. When she was arriving, we left.'], ans: 1, exp: 'Câu B đúng phối hợp "was driving" (hành động nền) + "when he saw" (hành động xen vào).' }
+            ]
+          }
+        ]
+      }
+    ];
+
+    function openOverview() {
+      overviewMode = true;
+      document.getElementById('overview-section').classList.remove('hidden');
+      document.getElementById('detail-card-section').classList.add('hidden');
+      document.getElementById('breadcrumb-badge').textContent = 'Giới thiệu chung TENSES & ASPECTS';
+      renderGroupNav();
+      renderSubtopicPills();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function selectGroup(gIdx) {
+      activeGroupIdx = gIdx;
+      activeSubIdx = 0;
+      renderGroupNav();
+      renderSubtopicPills();
+      if (!overviewMode) {
+        openSubtopic(gIdx, 0);
+      }
+    }
+
+    function openSubtopic(gIdx, sIdx) {
+      activeGroupIdx = gIdx;
+      activeSubIdx = sIdx;
+      overviewMode = false;
+      showAllSubQ = false;
+
+      const grp = TENSE_GROUPS[gIdx];
+      const sub = grp.subtopics[sIdx];
+
+      document.getElementById('overview-section').classList.add('hidden');
+      document.getElementById('detail-card-section').classList.remove('hidden');
+      document.getElementById('breadcrumb-badge').textContent = `${grp.title} → ${sub.name} (${sub.vi})`;
+
+      renderGroupNav();
+      renderSubtopicPills();
+      renderDetailCard();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function renderGroupNav() {
+      const grid = document.getElementById('group-nav-grid');
+      grid.innerHTML = TENSE_GROUPS.map((g, idx) => {
+        const active = !overviewMode && idx === activeGroupIdx;
+        return `
+          <button type="button" onclick="selectGroup(${idx})"
+            class="tile-btn p-3.5 rounded-2xl border-2 text-left transition ${
+              active
+                ? 'bg-indigo-700 text-white border-indigo-700 shadow'
+                : 'bg-white text-slate-900 border-slate-300 hover:border-indigo-500'
+            }">
+            <div class="font-display font-extrabold text-sm sm:text-base leading-tight">${g.title}</div>
+            <div class="text-xs ${active ? 'text-indigo-100' : 'text-slate-600'} mt-0.5">${g.vi} (${g.subtopics.length} thẻ)</div>
+          </button>
+        `;
+      }).join('');
+    }
+
+    function renderSubtopicPills() {
+      const grp = TENSE_GROUPS[activeGroupIdx];
+      document.getElementById('sub-group-label').textContent = `Các thẻ thành phần con của ${grp.title} (${grp.vi}):`;
+      document.getElementById('sub-group-count').textContent = `${grp.subtopics.length} thẻ riêng biệt`;
+
+      const row = document.getElementById('subtopic-pills-row');
+      row.innerHTML = grp.subtopics.map((s, idx) => {
+        const active = !overviewMode && idx === activeSubIdx;
+        return `
+          <button type="button" onclick="openSubtopic(${activeGroupIdx}, ${idx})"
+            class="tile-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-extrabold border-2 transition ${
+              active
+                ? 'bg-slate-950 text-sky-300 border-slate-950 shadow'
+                : 'bg-slate-50 text-slate-900 border-slate-300 hover:border-indigo-500 hover:bg-indigo-50/50'
+            }">
+            ${s.name}
+          </button>
+        `;
+      }).join('');
+    }
+
+    function renderOverviewGroupsGrid() {
+      const grid = document.getElementById('overview-groups-grid');
+      grid.innerHTML = TENSE_GROUPS.map((g, gIdx) => `
+        <div class="rounded-3xl border-2 border-slate-200 bg-slate-50 p-5 flex flex-col justify-between gap-4">
+          <div class="space-y-2">
+            <span class="px-2.5 py-1 rounded-lg bg-indigo-100 text-indigo-900 text-xs font-extrabold">${g.title}</span>
+            <h3 class="font-display text-lg font-extrabold text-slate-950">${g.vi}</h3>
+            <p class="text-sm text-slate-800 leading-relaxed">${g.desc}</p>
+          </div>
+          <div class="space-y-1.5">
+            ${g.subtopics.map((s, sIdx) => `
+              <button type="button" onclick="openSubtopic(${gIdx}, ${sIdx})"
+                class="w-full text-left px-3 py-2 rounded-xl bg-white hover:bg-indigo-50 border border-slate-200 hover:border-indigo-400 text-xs sm:text-sm font-bold text-slate-900 transition">
+                • ${s.name}
+              </button>
+            `).join('')}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function getCardKey() {
+      return `g${activeGroupIdx}_s${activeSubIdx}`;
+    }
+
+    function renderDetailCard() {
+      const grp = TENSE_GROUPS[activeGroupIdx];
+      const sub = grp.subtopics[activeSubIdx];
+      const cardKey = getCardKey();
+
+      const container = document.getElementById('detail-card-section');
+      container.innerHTML = `
+        <!-- Header thẻ thành phần con -->
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b-2 border-slate-200 pb-5">
+          <div class="space-y-1">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-100 text-indigo-950 text-xs font-extrabold">
+              <span>${grp.title}</span> • <span>Thẻ ${activeSubIdx + 1} / ${grp.subtopics.length}</span>
+            </div>
+            <h2 class="font-display text-2xl sm:text-3xl font-extrabold text-slate-950">
+              ${sub.name} — <span class="text-indigo-700">${sub.vi}</span>
+            </h2>
+          </div>
+
+          <div class="flex items-center gap-2 self-start md:self-auto">
+            <button type="button" onclick="openSubtopic(${activeGroupIdx}, (activeSubIdx - 1 + TENSE_GROUPS[activeGroupIdx].subtopics.length) % TENSE_GROUPS[activeGroupIdx].subtopics.length)"
+              class="px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-300 text-xs font-extrabold text-slate-900 transition">
+              ← Thẻ trước
+            </button>
+            <button type="button" onclick="openSubtopic(${activeGroupIdx}, (activeSubIdx + 1) % TENSE_GROUPS[activeGroupIdx].subtopics.length)"
+              class="px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-300 text-xs font-extrabold text-slate-900 transition">
+              Thẻ tiếp →
+            </button>
+          </div>
+        </div>
+
+        <!-- I. ĐỊNH NGHĨA -->
+        <div class="rounded-3xl bg-indigo-50/75 border-2 border-indigo-200 p-6 space-y-2">
+          <h3 class="font-display text-xl font-extrabold text-indigo-950">I. ĐỊNH NGHĨA</h3>
+          <p class="text-base sm:text-lg text-slate-900 leading-relaxed">${sub.def}</p>
+        </div>
+
+        <!-- II. CÁCH DÙNG (Ít nhất 5 ví dụ từ cơ bản đến nâng cao) -->
+        <div class="rounded-3xl bg-white border-2 border-slate-200 p-6 space-y-3">
+          <h3 class="font-display text-xl font-extrabold text-slate-950">II. CÁCH DÙNG (Từ cơ bản đến nâng cao)</h3>
+          <div class="space-y-2.5">
+            ${sub.usage.map((u, i) => {
+              const quoteMatch = u.match(/"([^"]+)"/);
+              const speakStr = quoteMatch ? quoteMatch[1].replace(/'/g, "\\'") : '';
+              return `
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 flex items-start justify-between gap-3">
+                  <p class="text-sm sm:text-base text-slate-900 leading-relaxed"><strong>${i + 1}.</strong> ${u}</p>
+                  ${speakStr ? `<button type="button" onclick="speakText('${speakStr}')" class="shrink-0 w-9 h-9 rounded-xl bg-white border border-slate-300 hover:border-indigo-500 flex items-center justify-center text-sm" title="Nghe ví dụ">🔊</button>` : ''}
+                </div>
+              `;
+            }).join('')}
+          </div>
+        </div>
+
+        <!-- III. CẤU TRÚC (Có ví dụ đi kèm cho từng loại) -->
+        <div class="rounded-3xl bg-white border-2 border-slate-200 p-6 space-y-4">
+          <h3 class="font-display text-xl font-extrabold text-slate-950">III. CẤU TRÚC</h3>
+          <div class="grid md:grid-cols-3 gap-4">
+            ${sub.structures.map(st => `
+              <div class="p-4 rounded-2xl bg-teal-50/75 border-2 border-teal-200 flex flex-col justify-between gap-3">
+                <div class="space-y-1.5">
+                  <span class="text-xs font-extrabold uppercase text-teal-900">${st.label}</span>
+                  <div class="font-mono-code text-sm font-extrabold text-slate-950 bg-white p-2.5 rounded-xl border border-teal-200">${st.formula}</div>
+                </div>
+                <div class="flex items-center justify-between gap-2 pt-1">
+                  <span class="text-sm font-bold text-slate-900">VD: <em>"${st.ex}"</em></span>
+                  <button type="button" onclick="speakText('${st.ex.replace(/'/g, "\\'")}')" class="shrink-0 w-9 h-9 rounded-xl bg-white border border-teal-300 flex items-center justify-center text-sm" title="Nghe ví dụ">🔊</button>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+
+        <!-- IV. LƯU Ý (Kèm ví dụ minh họa) -->
+        <div class="rounded-3xl bg-amber-50/85 border-2 border-amber-300 p-6 space-y-2.5">
+          <h3 class="font-display text-xl font-extrabold text-amber-950">IV. LƯU Ý</h3>
+          <p class="text-base text-slate-900 leading-relaxed">${sub.note}</p>
+          <div class="p-3.5 rounded-2xl bg-white border border-amber-300 text-sm sm:text-base font-bold text-slate-950">
+            Ví dụ minh họa: ${sub.noteEx}
+          </div>
+        </div>
+
+        <!-- V. ÁP DỤNG TRONG TIẾNG ANH (Ít nhất 5 ví dụ từ cơ bản đến nâng cao) -->
+        <div class="rounded-3xl bg-white border-2 border-slate-200 p-6 space-y-3">
+          <h3 class="font-display text-xl font-extrabold text-slate-950">V. ÁP DỤNG TRONG TIẾNG ANH (Từ cơ bản đến nâng cao)</h3>
+          <div class="space-y-2.5">
+            ${sub.applications.map((app, i) => {
+              const quoteMatch = app.match(/"([^"]+)"/);
+              const speakStr = quoteMatch ? quoteMatch[1].replace(/'/g, "\\'") : '';
+              return `
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 flex items-start justify-between gap-3">
+                  <p class="text-sm sm:text-base text-slate-900 leading-relaxed"><strong>${i + 1}.</strong> ${app}</p>
+                  ${speakStr ? `<button type="button" onclick="speakText('${speakStr}')" class="shrink-0 w-9 h-9 rounded-xl bg-white border border-slate-300 hover:border-indigo-500 flex items-center justify-center text-sm" title="Nghe ví dụ">🔊</button>` : ''}
+                </div>
+              `;
+            }).join('')}
+          </div>
+        </div>
+
+        <!-- VI. MỘT SỐ BÀI TẬP (10 câu, đa dạng loại câu hỏi) -->
+        <div class="rounded-3xl bg-slate-50 border-2 border-slate-300 p-6 space-y-5">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-200 pb-4">
+            <div>
+              <h3 class="font-display text-xl font-extrabold text-slate-950">VI. MỘT SỐ BÀI TẬP (10 CÂU)</h3>
+              <p class="text-xs sm:text-sm text-slate-600">Đa dạng trắc nghiệm, điền từ chia động từ, đúng/sai cho riêng mục ${sub.name}</p>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="px-3.5 py-1.5 rounded-xl bg-indigo-100 text-indigo-950 text-xs sm:text-sm font-extrabold">
+                Điểm: <span id="card-quiz-score">0</span> / 10
+              </span>
+              <button type="button" onclick="toggleCardAllQ()" class="px-3 py-1.5 rounded-xl bg-white hover:bg-slate-100 border border-slate-300 text-xs font-extrabold text-slate-900">
+                ${showAllSubQ ? 'Thu gọn (xem câu 1)' : 'Xem tất cả 10 câu'}
+              </button>
+            </div>
+          </div>
+
+          <div id="card-quiz-list" class="space-y-4"></div>
+
+          <div class="flex flex-wrap items-center justify-between gap-3 pt-2">
+            <button type="button" onclick="resetCurrentCardQuiz()" class="px-4 py-2.5 rounded-xl bg-slate-200 hover:bg-slate-300 text-slate-900 text-xs sm:text-sm font-extrabold transition">
+              Làm lại 10 câu
+            </button>
+            <button type="button" onclick="gradeCurrentCardQuiz()" class="px-5 py-3 rounded-2xl bg-indigo-700 hover:bg-indigo-800 text-white text-sm sm:text-base font-extrabold shadow transition">
+              Chấm Điểm Bài Tập (10 Câu)
+            </button>
+          </div>
+        </div>
+      `;
+
+      renderCardQuizList(cardKey, sub.exercises);
+    }
+
+    function toggleCardAllQ() {
+      showAllSubQ = !showAllSubQ;
+      const grp = TENSE_GROUPS[activeGroupIdx];
+      const sub = grp.subtopics[activeSubIdx];
+      renderDetailCard();
+    }
+
+    function saveCardQAns(cardKey, qIdx, val) {
+      savedQuizAnswers[`${cardKey}__${qIdx}`] = val;
+    }
+
+    function renderCardQuizList(cardKey, exercises) {
+      const box = document.getElementById('card-quiz-list');
+      const itemsToShow = showAllSubQ ? exercises.map((e, i) => ({ ...e, idx: i })) : [{ ...exercises[0], idx: 0 }];
+
+      box.innerHTML = itemsToShow.map(item => {
+        const key = `${cardKey}__${item.idx}`;
+        const saved = savedQuizAnswers[key] ?? '';
+
+        let controlHtml = '';
+        if (item.type === 'fill') {
+          controlHtml = `
+            <input type="text" value="${saved}" placeholder="${item.placeholder}"
+              oninput="saveCardQAns('${cardKey}', ${item.idx}, this.value)"
+              class="w-full sm:w-80 px-4 py-2.5 rounded-2xl bg-white border-2 border-slate-300 focus:border-indigo-600 focus:outline-none font-mono-code font-bold text-indigo-900 text-sm sm:text-base" />
+          `;
+        } else {
+          controlHtml = `
+            <div class="grid sm:grid-cols-2 gap-2.5">
+              ${item.opts.map((opt, oIdx) => `
+                <label class="flex items-center gap-2.5 p-3 rounded-2xl bg-white border-2 ${
+                  parseInt(saved, 10) === oIdx ? 'border-indigo-600 bg-indigo-50/50' : 'border-slate-200 hover:border-indigo-400'
+                } cursor-pointer transition">
+                  <input type="radio" name="cq-${cardKey}-${item.idx}" value="${oIdx}" ${parseInt(saved, 10) === oIdx ? 'checked' : ''}
+                    onchange="saveCardQAns('${cardKey}', ${item.idx}, this.value)" class="w-4 h-4 text-indigo-700" />
+                  <span class="text-sm font-bold text-slate-900">${opt}</span>
+                </label>
+              `).join('')}
+            </div>
+          `;
+        }
+
+        return `
+          <div id="cq-box-${cardKey}-${item.idx}" class="p-5 rounded-2xl bg-white border-2 border-slate-200 space-y-3">
+            <p class="font-bold text-base text-slate-950">${item.q}</p>
+            ${controlHtml}
+            <div id="cq-fb-${cardKey}-${item.idx}" class="hidden p-3 rounded-xl text-sm font-semibold"></div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function gradeCurrentCardQuiz() {
+      showAllSubQ = true;
+      renderDetailCard();
+
+      const grp = TENSE_GROUPS[activeGroupIdx];
+      const sub = grp.subtopics[activeSubIdx];
+      const cardKey = getCardKey();
+      let score = 0;
+
+      sub.exercises.forEach((item, idx) => {
+        const box = document.getElementById(`cq-box-${cardKey}-${idx}`);
+        const fb = document.getElementById(`cq-fb-${cardKey}-${idx}`);
+        const raw = (savedQuizAnswers[`${cardKey}__${idx}`] ?? '').toString().trim().toLowerCase();
+
+        const ok = item.type === 'fill'
+          ? item.acc.map(a => a.toLowerCase()).includes(raw)
+          : parseInt(raw, 10) === item.ans;
+
+        fb.classList.remove('hidden');
+        if (ok) {
+          score++;
+          box.className = 'p-5 rounded-2xl bg-emerald-50/70 border-2 border-emerald-500 space-y-3';
+          fb.className = 'p-3 rounded-xl bg-emerald-100 text-emerald-950 text-sm font-semibold';
+          fb.innerHTML = `<strong>✓ Chính xác!</strong> ${item.exp}`;
+        } else {
+          box.className = 'p-5 rounded-2xl bg-rose-50/70 border-2 border-rose-500 space-y-3';
+          fb.className = 'p-3 rounded-xl bg-rose-100 text-rose-950 text-sm font-semibold';
+          const ansDisp = item.type === 'fill' ? item.acc[0] : item.opts[item.ans];
+          fb.innerHTML = `<strong>✗ Chưa đúng.</strong> Đáp án: <strong>${ansDisp}</strong>. ${item.exp}`;
+        }
+      });
+
+      document.getElementById('card-quiz-score').textContent = score;
+    }
+
+    function resetCurrentCardQuiz() {
+      const cardKey = getCardKey();
+      Object.keys(savedQuizAnswers).forEach(k => {
+        if (k.startsWith(`${cardKey}__`)) delete savedQuizAnswers[k];
+      });
+      showAllSubQ = true;
+      renderDetailCard();
+      document.getElementById('card-quiz-score').textContent = '0';
+    }
+
+    renderGroupNav();
+    renderSubtopicPills();
+    renderOverviewGroupsGrid();
+  </script>
+</body>
+</html>
